@@ -597,7 +597,9 @@
 
 	<script type="text/javascript">
 		$(document).ready(function () {
-			location.hash && $(location.hash + '.collapse').collapse('show');
+			if (location.hash) {
+				$(location.hash + '.collapse').collapse('show'); $(location.hash).prev().find('i').toggleClass('fa-caret-right fa-caret-down');
+			};
 
 			$("#search").on("keypress click input", function () {
 				var val = $(this).val();
