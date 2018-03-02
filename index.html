@@ -4,15 +4,19 @@
 		<title>Idle Champions FAQ</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<div class="container">
 			<div class="row text-center"><div class="col"><h2>Idle Champions FAQ</h2></div></div>
 			<div class="row text-center mb-2"><div class="col">
-				<small>If you spot any mistakes, be them typos or otherwise, or have any questions that you think would be a good addition to this FAQ,<br /> feel free to get in contact with @Archimedes#5179 in the Official Idle Champions Discord Server,<br />
-				or submit an issue here: <a target="_blank" href="https://github.com/omfgtora/Idle-Champions-FAQ/issues">https://github.com/omfgtora/Idle-Champions-FAQ/issues</a></small>
+				<small>
+					If you spot any mistakes, be them typos or otherwise, or have any questions that you think would be a good addition to this FAQ,<br /> feel free to get in contact with @Archimedes#5179 in the Official Idle Champions Discord Server,<br />
+					or submit an issue here: <a target="_blank" href="https://github.com/omfgtora/Idle-Champions-FAQ/issues">https://github.com/omfgtora/Idle-Champions-FAQ/issues</a>
+					<br /><br />
+					You can link directly to a specific question by adding #Q and the question number to the end of the URL (e.g. <a href="https://omfgtora.github.io/Idle-Champions-FAQ/#Q21">https://omfgtora.github.io/Idle-Champions-FAQ/#Q21</a>).
+			</small>
 			</div></div>
 
 			<div class="row text-center"><div class="col">
@@ -330,7 +334,7 @@
 				<a data-toggle="collapse" data-target="#Q12" aria-controls="Q12">
 					<div class="card-header">
 						<h5 class="mb-0">
-								Q12: Mission _____ says it's 'Fair' but I can't complete it/Mission _____ says it's 'Challenging' but it was super easy, what's going on with the difficulty ratings?
+								<i class="fas fa-caret-right"></i> Q12: Mission _____ says it's 'Fair' but I can't complete it/Mission _____ says it's 'Challenging' but it was super easy, what's going on with the difficulty ratings?
 						</h5>
 					</div>
 				</a>
@@ -388,8 +392,8 @@
 						<br /><br />
 						Shiny gear can be upgraded to Gold, however a Gold upgraded from a Shiny provides the same boost as a Gold that was never Shiny.
 						<br /><br />
-								A Shiny piece of equipment (silver border) will perminantly increase the effect of the equipment slot by 50%.<br />
-								A Gold piece of equipment (gold border) will perminantly increase the effect of the equipment slot by 100%.<br />
+								A Shiny piece of equipment (silver border) will permanently increase the effect of the equipment slot by 50%.<br />
+								A Gold piece of equipment (gold border) will permanently increase the effect of the equipment slot by 100%.<br />
 						<br />
 						More detailed information about Equipment Gild specifics can be found on the wikia: <a target="_blank" href="http://idle-champions.wikia.com/wiki/Equipment">http://idle-champions.wikia.com/wiki/Equipment</a>
 					</div>
@@ -597,22 +601,29 @@
 
 	<script type="text/javascript">
 		$(document).ready(function () {
-			if (location.hash) {
-				$(location.hash + '.collapse').collapse('show'); $(location.hash).prev().find('i').toggleClass('fa-caret-right fa-caret-down');
+			// Direct link to question. Toggle caret. Auto scroll.
+			if (location.hash && '.container') {
+				$(location.hash + '.collapse').collapse('show');
+				$(location.hash).prev().find('i').toggleClass('fa-caret-right fa-caret-down');
+				var position = $($(this).find(location.hash).prev()).offset().top;
+				$("body").animate({scrollTop: position},500,'swing');
 			};
 
+			// Search - hides unmatching elements
 			$("#search").on("keypress click input", function () {
 				var val = $(this).val();
 				if(val.length) {
 						$(".accordion .card").hide().filter(function () {
 								return $('.card-body', this).text().toLowerCase().indexOf(val.toLowerCase()) > -1;
 						}).show();
+						$('.card-body', this).wrap('<span class="bg-primary"></span>');
 				}
 				else {
 						$(".accordion .card").show();
 				}
 			});
 
+			// Toggles caret on click
 			$(".card-header").click(function(){
 				$(this).find('i').toggleClass('fa-caret-right fa-caret-down')
 			});
