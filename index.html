@@ -15,7 +15,7 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-2 p-0">
+        <div class="col-2 p-0 border-right">
           <nav class="nav flex-column nav-pills sticky-top" id="table-of-contents" style="max-height: 100%; overflow: scroll;">
             <small>
             <li class="nav-item"><a class="nav-link" href="#Q01">Q01: What's the invite link for the Idle Champions Official Discord Server?</a></li>
@@ -44,7 +44,7 @@
             </small>
           </nav>
         </div>
-      <div class="col-xl-9 col-lg-10">
+      <div class="col-xl-9 col-10">
       <div class="row justify-content-center text-center">
         <div class="col"><h1>Idle Champions Community FAQ</h1></div>
       </div>
@@ -696,8 +696,10 @@
       // Direct link to question. Toggle caret. Auto scroll.
       if (location.hash) {
         $('.accordion').children('.card').children('.show').toggleClass('show');
-        $('.nav-link .active').toggleClass('active')
-        scrollToHash(location.hash)
+        $('.nav-link.active').toggleClass('active');
+        $('.fa-caret-down').toggleClass('fa-caret-down fa-caret-right');
+        scrollToHash(location.hash);
+        $('.nav-link').find('a [href="' + location.hash + '"]').toggleClass('active');
       };
 
       // Search - hides unmatching elements
