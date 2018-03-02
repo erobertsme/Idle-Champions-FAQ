@@ -593,6 +593,9 @@
 						$(".accordion .card").hide().filter(function () {
 								return $('.card-header', this).text().toLowerCase().indexOf(val.toLowerCase()) > -1;
 						}).show();
+						$(".accordion .card").hide().filter(function () {
+								return $('.card-body', this).text().toLowerCase().indexOf(val.toLowerCase()) > -1;
+						}).show();
 				}
 				else {
 						$(".accordion .card").show();
