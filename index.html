@@ -100,7 +100,7 @@
                 Sign up for the Newsletter, and you will receive a code to claim Hitch within the game shortly after (it can sometimes take a few hours for the code to come through).
                 <br /><br />
                 The signup can be found in game Esc>Newsletter or on CNE's website:<br />
-                <a href="http://codenameentertainment.com/?page=idle_champions_email">http://codenameentertainment.com/?page=idle_champions_email</a>
+                <a target="_blank" href="http://codenameentertainment.com/?page=idle_champions_email">http://codenameentertainment.com/?page=idle_champions_email</a>
                 <br /><br />
                 Additionally, by signing up to the Newsletter, you'll receive regular codes for a Gold Chest for free.
               </div>
@@ -224,20 +224,20 @@
 
         <div id="Q06" class="collapse" data-parent="#accordion">
           <div class="card-body">
-            You can play the campaigns in whichever order you like, and do bits of both interchangably if you want to. However, if you wish to be more optimal with your Campaign order choice, the following is generally agreed to be the best order to work through them:
+            You can play the campaigns in whichever order you like, and do bits of both interchangeably if you want to. However, if you wish to be more optimal with your Campaign order choice, the most valuable reward for progressing within Permanent Campaigns is the ability to purchase Global Blessings. However, in order to both progress to higher Zones (allowing faster Gold, and therefore Favour, earnings), and to unlock the higher Teir Blessings, you much purchase a minimum number of Blessings of the lower Tiers. By default, a Warning is turned on within Idle Champions that will trigger if you attempt to spend more than 20% of your current Favour, which is rarely advisable to ignore.<br />
+            Due to difference Global Blessings being available for each Permanent Campaign, and set at different Favour Costs, there is a generally agreed upon best order to progress when purchasing these Global Blessings:
             <br /><br />
-            <b>T1 Global Torm - Grand Tour of the Sword Coast</b><br />
-            Buying the Divine Blessing Blessing when the cost of it is <=2% of the favour gained on your run will gain you more than you spend to buy it.
+            <b>Grand Tour of the Sword Coast (Torm) - Tier 1 (T1) Global Blessing - Double Damage</b><br />
+            Additionally, buying the 'Divine Blessing' T1 Torm Blessing when the cost of it is <=2% of the favour gained on your run will gain you more than it costs to purchase.
             <br /><br />
-            <b>T1 Global Kelemvor - Tomb of Annihilation</b><br />
-              Similarly to the Divine Blessing in the Torm Blesings 'Golden Riches' is worth buying when its cost <=20% of the favour gained on your run.
+            <b>Tomb of Annihilation (Kelemvor) - T2 Global Blessing - Legendary Champions</b><br />
+              Similar to the T1 Torm Blessing 'Divine Blessing', 'Golden Riches' is worth buying when its cost <=20% of the favour gained on your run, as it will increase your gained Favour by more than it costs to purchase.
+            <br /><br />
+            <b>Grand Tour of the Sword Coast (Torm) - T2 Global Blessing - Gem Hunter</b><br />
+            'Heavy Hitters' is a much better investment than 'Quick Hitters'. The vast majority of Primary DPS Champions have Base Attack cooldowns of more than 4 seconds, therefore 'Heavy Hitters' benefits your important damage dealing Champions the most.
               <br /><br />
-            <b>T2 Global Torm - Grand Tour of the Sword Coast
-            </b><br />
-              Heavy Hitters is much better than Quick Hitters. The vast majority of Champions have Base Attack cooldowns of more than 4 seconds. And all of the best DPS champs have long Base Attack cooldowns.
-              <br /><br />
-            <b>T2&amp;3 Global Kelemvor - Tomb of Annihilation</b><br />
-              Womanly Wiles is better than Showmanship if you use a Female as your Primary DPS. Visa-versa, Showmanship if better than Womanly Wiles if you use a Male as your Primary DPS.
+            <b>Tomb of Annihilation (Kelemvor) - T2&amp;T3 Global Blessing - Temporary Worship & Golden Luck</b><br />
+            'Womanly Wiles' is better than Showmanship if you use a Female as your Primary DPS. Visa-versa, 'Showmanship' if better than Womanly Wiles if you use a Male as your Primary DPS.
           </div>
         </div>
       </div>
@@ -699,7 +699,7 @@
         $('.nav-link.active').toggleClass('active');
         $('.fa-caret-down').toggleClass('fa-caret-down fa-caret-right');
         scrollToHash(location.hash);
-        $('.nav-link').find('a [href="' + location.hash + '"]').toggleClass('active');
+        $('.nav-link[href="' + location.hash + '"]').toggleClass('active');
       };
 
       // Search - hides unmatching elements
