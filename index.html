@@ -916,7 +916,7 @@
       };
 
       // Search - hides unmatching elements
-      $('#search').on("keypress click input", function () {
+      $('#search').on("keypress click input", function (event) {
         // Prevent enter keypress
         if (event.keyCode === 13) {
           event.preventDefault();
