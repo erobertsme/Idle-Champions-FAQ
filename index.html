@@ -917,6 +917,10 @@
 
       // Search - hides unmatching elements
       $('#search').on("keypress click input", function () {
+        // Prevent enter keypress
+        if (event.keyCode === 13) {
+          event.preventDefault();
+        }
         var val = $(this).val();
         if(val.length) {
             $('.accordion .card').hide().filter(function () {
@@ -925,12 +929,6 @@
         }
         else {
             $('.accordion .card').show();
-        }
-      });
-      // Prevent search enter
-      $('#search').on('keypress', function (e) {
-        if (e.keyCode == 13) {
-          e.preventDefault();
         }
       });
 
