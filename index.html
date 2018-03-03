@@ -913,6 +913,9 @@
         $('.fa-caret-down').toggleClass('fa-caret-down fa-caret-right');
         scrollToHash(location.hash);
         $('.nav-link[href="' + location.hash + '"]').toggleClass('active');
+        var navPosition = $('a.nav-link[href="' + location.hash + '"]').offset().top;
+        console.log(navPosition)
+        $('#table-of-contents').animate({scrollTop: navPosition},500,'swing');
       };
 
       // Search - hides unmatching elements
@@ -951,8 +954,8 @@
       function scrollToHash(hash) {
         $(hash + '.collapse').collapse('show');
         $('[data-target="' + hash + '"] i').toggleClass('fa-caret-right fa-caret-down');
-        var position = $('.card:has(' + hash + ')').offset().top;
-        $("body").animate({scrollTop: position},500,'swing');
+        var position = $('.card a[data-target="' + hash + '"]').offset().top;
+        $('body').animate({scrollTop: position},500,'swing');
       }
       new ClipboardJS('.btn');
     });
