@@ -911,11 +911,16 @@
 
   <script type="text/javascript">
     $(document).ready(function () {
+
+      var showingCards = $('.accordion').children('.card').children('.show');
+      var activeLink = $('.nav-link.active');
+      var caretDown = $('.fa-caret-down');
+
       // Direct link to question. Toggle caret. Auto scroll.
       if (location.hash && $('.card a[data-target="' + location.hash + '"]').length) {
-        $('.accordion').children('.card').children('.show').toggleClass('show');
-        $('.nav-link.active').toggleClass('active');
-        $('.fa-caret-down').toggleClass('fa-caret-down fa-caret-right');
+        showingCards.toggleClass('show');
+        activeLink.toggleClass('active');
+        caretDown.toggleClass('fa-caret-down fa-caret-right');
         scrollToHash(location.hash);
         $('.nav-link[href="' + location.hash + '"]').toggleClass('active');
         var navPosition = $('a.nav-link[href="' + location.hash + '"]').offset().top;
@@ -948,8 +953,8 @@
       // Scrolls to linked question
       $('.nav-link').click(function (event) {
           event.preventDefault();
-          $('.accordion').children('.card').children('.show').toggleClass('show');
-          $('.fa-caret-down').toggleClass('fa-caret-down fa-caret-right');
+          showingCards.toggleClass('show');
+          caretDown.toggleClass('fa-caret-down fa-caret-right');
           scrollToHash(event.target.hash);
           $('.nav-link.active').toggleClass('active');
           $(event.target).toggleClass('active');
