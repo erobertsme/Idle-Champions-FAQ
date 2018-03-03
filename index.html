@@ -914,8 +914,7 @@
         scrollToHash(location.hash);
         $('.nav-link[href="' + location.hash + '"]').toggleClass('active');
         var navPosition = $('a.nav-link[href="' + location.hash + '"]').offset().top;
-        console.log(navPosition)
-        $('#table-of-contents').animate({scrollTop: navPosition},500,'swing');
+        $('#table-of-contents').animate({scrollTop: navPosition},400,'swing');
       };
 
       // Search - hides unmatching elements
