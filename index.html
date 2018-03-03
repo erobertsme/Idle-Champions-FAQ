@@ -914,7 +914,7 @@
         scrollToHash(location.hash);
         $('.nav-link[href="' + location.hash + '"]').toggleClass('active');
         var navPosition = $('a.nav-link[href="' + location.hash + '"]').offset().top;
-        $('#table-of-contents').animate({scrollTop: navPosition},400,'swing');
+        $('#table-of-contents').animate({scrollTop: navPosition},300,'swing');
       };
 
       // Search - hides unmatching elements
@@ -954,7 +954,7 @@
         $(hash + '.collapse').collapse('show');
         $('[data-target="' + hash + '"] i').toggleClass('fa-caret-right fa-caret-down');
         var position = $('.card a[data-target="' + hash + '"]').offset().top;
-        $('body').animate({scrollTop: position},500,'swing');
+        $('body').animate({scrollTop: position},300,'swing');
       }
       new ClipboardJS('.btn');
     });
