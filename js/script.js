@@ -3,37 +3,36 @@ $(document).ready(function () {
   // load json
   $.ajax({
     type: 'GET',
-    url: 'js/test.json',
+    url: 'js/questions.json',
     dataType: 'json',
     success: function(data) {
       console.log('Success! Loaded questions from file');
-      console.log(data)
+      console.log(data);
       // apply data to templates
       $('#navTemplate-container').loadTemplate($('#navTemplate'),data.questions);
+      $('#questionTemplate-container').loadTemplate($('#questionTemplate'),data.questions);
     },
     error: function() {
-      console.log('Error loading questions from file!')
+      console.error('Error loading questions from file');
     }
   });
+});
 
+$(window).on("load",function () {
   // Function to scroll to hash target
   function scrollToHash(targetHash) {
     console.log('scrollToHash Fired!: ' + targetHash);
     // Opens linked accordion card
     $(targetHash + '.collapse').collapse('show');
     // Toggle linked caret
-    $('a[data-target="' + targetHash + '"]').find('.fa-caret-right').toggleClass('fa-caret-right fa-caret-down');
+    $(targetHash).prev().find('i').toggleClass('fa-caret-right fa-caret-down');
     // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px)
     var targetPosition = $('.card').has('div' + targetHash).offset().top - 46;
     // Scrolls to positon
     $('body').animate({scrollTop: targetPosition},300,'swing');
   };
-});
-
-$(window).on("load",function () {
-  console.log('loaded');
   // Direct link to question. Toggle caret. Auto scroll.
-  if (location.hash && $('.card a[data-target="' + location.hash + '"]').length) {
+  if (location.hash && $(location.hash).length) {
     // Scrolls to linked accordion card
     scrollToHash(location.hash);
     // Toggles linked nav-link to active
@@ -50,7 +49,7 @@ $(window).on("load",function () {
     // Open first accordion card
     $('#Q01').collapse('show');
     // Toggle firsrt accordion card caret
-    $('a[data-target="#Q01"]').find('i').toggleClass('fa-caret-right fa-caret-down');
+    $('#Q01').prev().find('i').toggleClass('fa-caret-right fa-caret-down');
   };
 
   // Search
@@ -74,6 +73,7 @@ $(window).on("load",function () {
   // Toggles caret on click
   $('.card-header').click(function(event) {
     $(event.target).find('i').toggleClass('fa-caret-right fa-caret-down');
+    $(event.target).next().collapse('toggle');
   });
 
   // When navigation link is clicked it scrolls to linked question
@@ -87,7 +87,7 @@ $(window).on("load",function () {
     // Toggles active link
     $('.nav-link.active').button('toggle');
     // Gets all opened accordion cards
-    var otherOpenCollapse = $('.accordion').children('.card').filter('.show').not(targetHash);
+    var otherOpenCollapse = $('.card .collapse').collapse('hide');
     // Collapses all other opened accordion cards
     otherOpenCollapse.collapse('hide');
     // Wait for collapse finish then Scrolls to link
@@ -101,8 +101,6 @@ $(window).on("load",function () {
     // Sets clicked link to active
     $(event.target).button('toggle');
   });
-
-
   // Instantiates ClipboardJS
   new ClipboardJS('.btn');
 });
