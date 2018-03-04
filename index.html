@@ -965,7 +965,6 @@
         $(hash + '.collapse').collapse('show');
         $('[data-target="' + hash + '"] i').toggleClass('fa-caret-right fa-caret-down');
         var position = $('.card a[data-target="' + hash + '"]').offset().top - $('#search-row').height();
-        console.log($('#search-row').height());
         $('body').animate({scrollTop: position},300,'swing');
       }
       new ClipboardJS('.btn');
