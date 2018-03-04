@@ -73,7 +73,7 @@ $(window).on("load",function () {
   // Toggles card and caret on click
   var cardHeaders = $('.card-header');
   var cardHeaderChildren = $('.card-header').find('*');
-  $(cardHeaders, cardHeaderChildren).on('click',function(event) {
+  $(cardHeaders, cardHeaderChildren).click(function(event) {
     $(event.target).find('i').toggleClass('fa-caret-right fa-caret-down');
     $(event.target).next().collapse('toggle');
   });
