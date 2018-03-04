@@ -20,7 +20,7 @@
           <nav class="nav flex-column nav-pills sticky-top" id="table-of-contents" style="max-height: 100%; overflow: scroll;">
             <small>
             <div class="text-center py-2 sticky-top bg-white"><b>Table of Contents</b></div>
-            <li class="nav-item"><a class="nav-link active" href="#Q01">Q01: What's the invite link for the Idle Champions Official Discord Server?</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Q01">Q01: What's the invite link for the Idle Champions Official Discord Server?</a></li>
             <li class="nav-item"><a class="nav-link" href="#Q02">Q02: How do I get Hitch?</a></li>
             <li class="nav-item"><a class="nav-link" href="#Q03">Q03: Can I claim more than one Newsletter code for a chest from the same week's Newsletter?</a></li>
             <li class="nav-item"><a class="nav-link" href="#Q04">Q04: How can I get some additional free chests?</a></li>
@@ -81,12 +81,12 @@
             <a data-toggle="collapse" data-target="#Q01" aria-expanded="true" aria-controls="Q01">
               <div class="card-header">
                 <h5 class="mb-0">
-                    <i class="fas fa-caret-down"></i> Q01: What's the invite link for the Idle Champions Official Discord Server?
+                    <i class="fas fa-caret-right"></i> Q01: What's the invite link for the Idle Champions Official Discord Server?
                 </h5>
               </div>
             </a>
 
-            <div id="Q01" class="collapse show" data-parent="#accordion">
+            <div id="Q01" class="collapse" data-parent="#accordion">
               <div class="card-body">
                 <div class="row">
                   <div class="col">
@@ -912,19 +912,25 @@
   <script type="text/javascript">
     $(document).ready(function () {
 
-      var showingCards = $('.accordion').children('.card').children('.show');
-      var activeLink = $('.nav-link.active');
-      var caretDown = $('.fa-caret-down');
-
       // Direct link to question. Toggle caret. Auto scroll.
       if (location.hash && $('.card a[data-target="' + location.hash + '"]').length) {
-        showingCards.toggleClass('show');
-        activeLink.toggleClass('active');
-        caretDown.toggleClass('fa-caret-down fa-caret-right');
+        // Scrolls to linked accordion card
         scrollToHash(location.hash);
+        // Toggles linked nav-link to active
         $('.nav-link[href="' + location.hash + '"]').toggleClass('active');
-        var navPosition = $('a.nav-link[href="' + location.hash + '"]').offset().top;
+        // Gets position of the top of the linked nav-link
+        var navPosition = $('.nav-link[href="' + location.hash + '"]').offset().top;
+        // Scrolls navigation to the top of the linked nav-link
         $('#table-of-contents').animate({scrollTop: navPosition},300,'swing');
+      }
+      // If no direct link
+      else {
+        // Activate first nav-link
+        $('.nav-link[href="#Q01"]').addClass('active');
+        // Open first accordion card
+        $('#Q01').collapse('show');
+        // Toggle firsrt accordion card caret
+        $('a[data-target="#Q01"]').find('i').toggleClass('fa-caret-right fa-caret-down');
       };
 
       // Search - hides unmatching elements
@@ -936,37 +942,48 @@
         // Search
         var val = $(this).val();
         if(val.length) {
-            $('.accordion .card').hide().filter(function () {
+            $('.card').hide().filter(function () {
                 return $('.card-body', this).text().toLowerCase().indexOf(val.toLowerCase()) > -1;
             }).show();
         }
         else {
-            $('.accordion .card').show();
+            $('.card').show();
         }
       });
 
       // Toggles caret on click
-      $('.card-header').click(function() {
-        $(this).find('i').toggleClass('fa-caret-right fa-caret-down');
+      $('.card-header').click(function(event) {
+        $(event.target).find('i').toggleClass('fa-caret-right fa-caret-down');
       });
 
       // Scrolls to linked question
       $('.nav-link').click(function (event) {
+          // Prevent open link
           event.preventDefault();
-          showingCards.toggleClass('show');
-          caretDown.toggleClass('fa-caret-down fa-caret-right');
+          // Toggles links that are active
+          $('.nav-link.active').button('toggle');
+          // Collapses other opened accordion cards
+          $('.accordion').children('.card').find('.show').not(event.target.hash).collapse('hide');
+          // Toggles caret of opened accordion cards
+          $('.fa-caret-down').toggleClass('fa-caret-down fa-caret-right');
+          // Scroll to link
           scrollToHash(event.target.hash);
-          $('.nav-link.active').toggleClass('active');
-          $(event.target).toggleClass('active');
+          // Sets clicked link to active
+          $(event.target).button('toggle');
       });
 
       // Function to scroll to hash target
       function scrollToHash(hash) {
+        // Opens linked accordion card
         $(hash + '.collapse').collapse('show');
+        // Toggle linked caret
         $('[data-target="' + hash + '"] i').toggleClass('fa-caret-right fa-caret-down');
-        var position = $('.card a[data-target="' + hash + '"]').offset().top - $('#search-row').height();
-        $('body').animate({scrollTop: position},300,'swing');
-      }
+        // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px)
+        var targetPosition = $('.card').has('a[data-target="' + hash + '"]').offset().top - 46;
+        // Scrolls to positon
+        $('body').animate({scrollTop: targetPosition},300,'swing');
+      };
+      // Instantiates ClipboardJS
       new ClipboardJS('.btn');
     });
   </script>
