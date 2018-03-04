@@ -7,45 +7,31 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="js/jquery.loadTemplate.min.js"></script>
     <style type="text/css">
     #table-of-contents::-webkit-scrollbar {
       width: 0px;
     }
     </style>
+
   </head>
   <body>
     <div class="container-fluid">
       <div class="row">
         <div class="col-2 p-0 border-right">
+
           <nav class="nav flex-column nav-pills sticky-top" id="table-of-contents" style="max-height: 100%; overflow: scroll;">
-            <small>
             <div class="text-center py-2 sticky-top bg-white"><b>Table of Contents</b></div>
-            <li class="nav-item"><a class="nav-link" href="#Q01">Q01: What's the invite link for the Idle Champions Official Discord Server?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q02">Q02: How do I get Hitch?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q03">Q03: Can I claim more than one Newsletter code for a chest from the same week's Newsletter?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q04">Q04: How can I get some additional free chests?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q05">Q05: What does _____ mean?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q06">Q06: Which Campaign should I do first? Should I stick to just one Campaign or do both together?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q07">Q07: I have a bug, what do I do?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q08">Q08: Validating the game files is a lengthy process, is there any way to do it easier/faster?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q09">Q09: Which FE should I pick?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q10">Q10: How do I know what type the enemy is (for choosing the best FE)?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q11">Q11: What upgrades does _____ get?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q12">Q12: Mission _____ says it's 'Fair' but I can't complete it/Mission _____ says it's 'Challenging' but it was super easy, what's going on with the difficulty ratings?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q13">Q13: What are the Equipment Rarities?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q14">Q14: What is a Shiny/Gold, and what does it do?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q15">Q15: How do I know how much Gold I have/DPS I'm doing? What does 15.4Q mean?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q16">Q16: What Formation should I use?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q17">Q17: Can I save my progress and play on various PCs?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q18">Q18: Offline Gold gains, why are they so bad?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q19">Q19: What does it mean when an ability requires a Champion to be 'within 2 slots' of them?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q20">Q20: What's the best order to open Event Chests?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q21">Q21: Who draws which bits of art for the game? Who do I complement on the super cute/hideous creatures we're killing?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q22">Q22: How much Favour should I spend?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#Q23">Q23: Who are the CNE team?</a></li>
-            <div style="min-height: 250px;"></div>
+
+            <small id="navTemplate-container">
+              <script type="text/html" id="navTemplate">
+                  <li class="nav-item"><a class="nav-link" data-content="question" data-href="href"></a></li>
+              </script>
             </small>
+
+            <div style="min-height: 250px;"></div>
           </nav>
+
         </div>
       <div class="col-xl-9 col-10">
       <div class="row justify-content-center text-center">
@@ -909,91 +895,7 @@
     </div>
   </div>
 
-  <script type="text/javascript">
-    $(document).ready(function () {
-
-      // Direct link to question. Toggle caret. Auto scroll.
-      if (location.hash && $('.card a[data-target="' + location.hash + '"]').length) {
-        // Scrolls to linked accordion card
-        scrollToHash(location.hash);
-        // Toggles linked nav-link to active
-        $('.nav-link[href="' + location.hash + '"]').toggleClass('active');
-        // Gets position of the top of the linked nav-link
-        var navPosition = $('.nav-link[href="' + location.hash + '"]').offset().top;
-        // Scrolls navigation to the top of the linked nav-link
-        $('#table-of-contents').animate({scrollTop: navPosition},300,'swing');
-      }
-      // If no direct link
-      else {
-        // Activate first nav-link
-        $('.nav-link[href="#Q01"]').addClass('active');
-        // Open first accordion card
-        $('#Q01').collapse('show');
-        // Toggle firsrt accordion card caret
-        $('a[data-target="#Q01"]').find('i').toggleClass('fa-caret-right fa-caret-down');
-      };
-
-      // Search
-      $('#search').on("keypress click input", function (event) {
-        // Prevent enter keypress
-        if (event.keyCode === 13) {
-          event.preventDefault();
-        }
-        // Hides non-matching elements
-        var val = $(this).val();
-        if(val.length) {
-          $('.card').hide().filter(function () {
-            return $('.card-body', this).text().toLowerCase().indexOf(val.toLowerCase()) > -1;
-          }).show();
-        }
-        else {
-          $('.card').show();
-        }
-      });
-
-      // Toggles caret on click
-      $('.card-header').click(function(event) {
-        $(event.target).find('i').toggleClass('fa-caret-right fa-caret-down');
-      });
-
-      // Scrolls to linked question
-      $('.nav-link').click(function(event) {
-        // Prevent open link
-        event.preventDefault();
-        // Sets hash link to var
-        var hash = event.target.hash;
-        // Toggles links that are active
-        $('.nav-link.active').button('toggle');
-        // Gets opened accordion cards
-        var otherOpenCollapse = $('.accordion').children('.card').find('.show').not(hash);
-        // Collapses other opened accordion cards
-        otherOpenCollapse.collapse('hide');
-        // Wait for collapse finish then Scrolls to link
-        $(otherOpenCollapse).on('hidden.bs.collapse', function(e) {
-          scrollToHash(hash);
-        });
-        // Toggles caret of opened accordion cards
-        $('.fa-caret-down').toggleClass('fa-caret-down fa-caret-right');
-        // Sets clicked link to active
-        $(event.target).button('toggle');
-      });
-
-      // Function to scroll to hash target
-      function scrollToHash(hash) {
-        console.log('Fired!: ' + hash);
-        // Opens linked accordion card
-        $(hash + '.collapse').collapse('show');
-        // Toggle linked caret
-        $('a[data-target="' + hash + '"] i .fa-caret-right').toggleClass('fa-caret-right fa-caret-down');
-        // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px)
-        var targetPosition = $('.card').has('div' + hash).offset().top - 46;
-        // Scrolls to positon
-        $('body').animate({scrollTop: targetPosition},300,'swing');
-      };
-      // Instantiates ClipboardJS
-      new ClipboardJS('.btn');
-    });
-  </script>
+  <script type="text/javascript" src="js/script.js"></script>
 
   </body>
 </html>
