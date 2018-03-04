@@ -2,19 +2,18 @@
   <head>
     <meta charset="UTF-8">
     <title>Idle Champions Community FAQ</title>
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
     <script src="js/jquery.loadTemplate.min.js"></script>
-    <style type="text/css">
-    #table-of-contents::-webkit-scrollbar {
-      width: 0px;
-    }
-    </style>
-
+    <!-- Hide Nav Scrollbar -->
+    <style type="text/css">#table-of-contents::-webkit-scrollbar {width: 0px;}</style>
   </head>
+
   <body>
     <div class="container-fluid">
       <div class="row">
@@ -66,7 +65,7 @@
           <script type="text/html" id="questionTemplate">
             <div class="card">
               <div class="card-header">
-                <i class="fas fa-caret-right"></i> <h5 class="d-inline" data-content="question"></h5>
+                <a><i class="fas fa-caret-right"></i> <h5 class="d-inline" data-content="question"></h5></a>
               </div>
 
               <div data-id="id" class="collapse" data-parent="#accordion">
