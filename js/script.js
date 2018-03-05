@@ -19,6 +19,8 @@ $(document).ready(function () {
 });
 
 $(window).on("load",function () {
+  // Get position of all nav links
+  var navPosition = $('a.nav-link');
   // Function to scroll to hash target
   function scrollToHash(targetHash) {
     console.log('scrollToHash Fired!: ' + targetHash);
@@ -26,21 +28,26 @@ $(window).on("load",function () {
     $(targetHash + '.collapse').collapse('show');
     // Toggle linked caret
     $(targetHash).prev().find('i').toggleClass('fa-caret-right fa-caret-down');
-    // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px)
-    var targetPosition = $('.card').has('div' + targetHash).offset().top - 46;
-    // Scrolls to positon
-    $('body').animate({scrollTop: targetPosition},300,'swing');
+    // Waits for open animation to finish
+    $(targetHash).on('shown.bs.collapse', function(e) {
+      // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px)
+      var targetPosition = $('.card').find('div' + targetHash).prev().offset().top - 47;
+      // Scrolls to positon
+      $('body').animate({scrollTop: targetPosition},200);
+    });
+
   };
+
   // Direct link to question. Toggle caret. Auto scroll.
   if (location.hash && $(location.hash).length) {
     // Scrolls to linked accordion card
     scrollToHash(location.hash);
     // Toggles linked nav-link to active
-    $('.nav-link[href="' + location.hash + '"]').toggleClass('active');
+    $('a.nav-link[href="' + location.hash + '"]').toggleClass('active');
     // Gets position of the top of the linked nav-link
-    var navPosition = $('.nav-link[href="' + location.hash + '"]').offset.top;
+    var linkedNavPosition = navPosition.filter('[href="' + location.hash + '"]');
     // Scrolls navigation to the top of the linked nav-link
-    $('#table-of-contents').animate({scrollTop: navPosition},300,'swing');
+    $('nav').animate({scrollTop: linkedNavPosition},200);
   }
   // If no direct link
   else {
@@ -71,9 +78,8 @@ $(window).on("load",function () {
   });
 
   // Toggles card and caret on click
-  var cardHeaders = $('.card-header');
-  var cardHeaderChildren = $('.card-header').find('*');
-  $(cardHeaders, cardHeaderChildren).click(function(event) {
+  var cards = $('.card');
+  $(cards).click(function(event) {
     $(event.target).find('i').toggleClass('fa-caret-right fa-caret-down');
     $(event.target).next().collapse('toggle');
   });
@@ -88,21 +94,18 @@ $(window).on("load",function () {
     console.log('after var: ' + targetHash);
     // Toggles active link
     $('.nav-link.active').button('toggle');
-    // Gets all opened accordion cards
-    var otherOpenCollapse = $('.card .collapse').collapse('hide');
     // Collapses all other opened accordion cards
-    otherOpenCollapse.collapse('hide');
+    $('.collapse').filter('.show').collapse('hide');
     // Wait for collapse finish then Scrolls to link
-    $(otherOpenCollapse).on('hidden.bs.collapse', function(e) {
-      console.log(otherOpenCollapse.length);
-      console.log('after collapse: ' + targetHash);
-      scrollToHash(targetHash);
-    });
+    console.log('after collapse: ' + targetHash);
     // Toggles caret of opened accordion cards
     $('.fa-caret-down').toggleClass('fa-caret-down fa-caret-right');
     // Sets clicked link to active
     $(event.target).button('toggle');
+    // Scrolls to target
+    scrollToHash(targetHash);
   });
+
   // Instantiates ClipboardJS
   new ClipboardJS('.btn');
 });
