@@ -7,7 +7,6 @@ $(document).ready(function () {
     dataType: 'json',
     success: function(data) {
       console.log('Success! Loaded questions from file');
-      console.log(data);
       // apply data to templates
       $('#navTemplate-container').loadTemplate($('#navTemplate'),data.questions);
       $('#questionTemplate-container').loadTemplate($('#questionTemplate'),data.questions);
@@ -20,10 +19,9 @@ $(document).ready(function () {
 
 $(window).on("load",function () {
   // Get position of all nav links
-  var navPosition = $('a.nav-link');
+  var navLinks = $('a.nav-link');
   // Function to scroll to hash target
   function scrollToHash(targetHash) {
-    console.log('scrollToHash Fired!: ' + targetHash);
     // Opens linked accordion card
     $(targetHash + '.collapse').collapse('show');
     // Toggle linked caret
@@ -33,7 +31,7 @@ $(window).on("load",function () {
       // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px)
       var targetPosition = $('.card').find('div' + targetHash).prev().offset().top - 47;
       // Scrolls to positon
-      $('body').animate({scrollTop: targetPosition},200);
+      $('#main').animate({scrollTop: targetPosition},200);
     });
 
   };
@@ -43,9 +41,10 @@ $(window).on("load",function () {
     // Scrolls to linked accordion card
     scrollToHash(location.hash);
     // Toggles linked nav-link to active
-    $('a.nav-link[href="' + location.hash + '"]').toggleClass('active');
+    $(navLinks).filter('[href="' + location.hash + '"]').toggleClass('active');
     // Gets position of the top of the linked nav-link
-    var linkedNavPosition = navPosition.filter('[href="' + location.hash + '"]');
+    var linkedNavPosition = $(navLinks).filter('[href="' + location.hash + '"]').scrollTop() + $(window).height();
+    console.log(linkedNavPosition);
     // Scrolls navigation to the top of the linked nav-link
     $('nav').animate({scrollTop: linkedNavPosition},200);
   }
@@ -85,19 +84,16 @@ $(window).on("load",function () {
   });
 
   // When navigation link is clicked it scrolls to linked question
-  $('a.nav-link').click(function(event) {
+  var navLinks = $('a.nav-link');
+  $(navLinks).click(function(event) {
     // Prevent open link
     event.preventDefault();
     // Sets hash link to var
     var targetHash = event.target.hash;
-    console.log('-----------------');
-    console.log('after var: ' + targetHash);
     // Toggles active link
     $('.nav-link.active').button('toggle');
     // Collapses all other opened accordion cards
     $('.collapse').filter('.show').collapse('hide');
-    // Wait for collapse finish then Scrolls to link
-    console.log('after collapse: ' + targetHash);
     // Toggles caret of opened accordion cards
     $('.fa-caret-down').toggleClass('fa-caret-down fa-caret-right');
     // Sets clicked link to active
