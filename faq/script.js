@@ -44,7 +44,6 @@ $(window).on('load',function () {
     $(navLinks).filter('[href="' + location.hash + '"]').toggleClass('active');
     // Gets position of the top of the linked nav-link
     var linkedNavPosition = $(navLinks).filter('[href="' + location.hash + '"]').prop('scrollHeight') + $(window).height();
-    console.log(linkedNavPosition);
     // Scrolls navigation to the top of the linked nav-link
     $('nav').animate({scrollTop: linkedNavPosition},200);
   }
