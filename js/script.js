@@ -17,7 +17,7 @@ $(document).ready(function () {
   });
 });
 
-$(window).on("load",function () {
+$(window).on('load',function () {
   // Get position of all nav links
   var navLinks = $('a.nav-link');
   // Function to scroll to hash target
@@ -31,7 +31,7 @@ $(window).on("load",function () {
       // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px)
       var targetPosition = $('.card').find('div' + targetHash).prev().offset().top - 47;
       // Scrolls to positon
-      $('#main').animate({scrollTop: targetPosition},200);
+      $('body').animate({scrollTop: targetPosition},200);
     });
 
   };
@@ -43,7 +43,7 @@ $(window).on("load",function () {
     // Toggles linked nav-link to active
     $(navLinks).filter('[href="' + location.hash + '"]').toggleClass('active');
     // Gets position of the top of the linked nav-link
-    var linkedNavPosition = $(navLinks).filter('[href="' + location.hash + '"]').scrollTop() + $(window).height();
+    var linkedNavPosition = $(navLinks).filter('[href="' + location.hash + '"]').prop('scrollHeight') + $(window).height();
     console.log(linkedNavPosition);
     // Scrolls navigation to the top of the linked nav-link
     $('nav').animate({scrollTop: linkedNavPosition},200);
