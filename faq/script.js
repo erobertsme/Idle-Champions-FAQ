@@ -3,7 +3,7 @@ $(document).ready(function () {
   // load json
   $.ajax({
     type: 'GET',
-    url: 'js/questions.json',
+    url: 'faq/questions.json',
     dataType: 'json',
     success: function(data) {
       console.log('Success! Loaded questions from file');
