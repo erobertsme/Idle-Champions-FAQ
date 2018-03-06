@@ -10,7 +10,7 @@ $(document).ready(function () {
       // apply data to templates
       $('#navTemplate-container').loadTemplate($('#navTemplate'),data.questions);
       $('#questionTemplate-container').loadTemplate($('#questionTemplate'),data.questions);
-      $('#questionTemplate-container').scrollspy('refresh');
+      $('#content').scrollspy('refresh');
     },
     error: function() {
       console.error('Error loading questions from file');
@@ -32,7 +32,7 @@ $(window).on('load',function () {
       // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px +1)
       var targetPosition = $('.card').find('div' + targetHash).prev().offset().top - 47;
       // Scrolls to positon
-      $('body').animate({scrollTop: targetPosition},200);
+      $('#content').animate({scrollTop: targetPosition},200);
     });
 
   };
@@ -102,7 +102,7 @@ $(window).on('load',function () {
     scrollToHash(targetHash);
   });
   // Binds scrollspy
-  $('#questionTemplate-container').scrollspy({target: '#table-of-contents'})
+  $('#content').scrollspy({target: '#navTemplate-container'})
 
   // Instantiates ClipboardJS
   new ClipboardJS('.btn');
