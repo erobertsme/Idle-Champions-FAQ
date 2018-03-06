@@ -28,7 +28,7 @@ $(window).on('load',function () {
     $(targetHash).prev().find('i').toggleClass('fa-caret-right fa-caret-down');
     // Waits for open animation to finish
     $(targetHash).on('shown.bs.collapse', function(e) {
-      // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px)
+      // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px +1)
       var targetPosition = $('.card').find('div' + targetHash).prev().offset().top - 47;
       // Scrolls to positon
       $('body').animate({scrollTop: targetPosition},200);
