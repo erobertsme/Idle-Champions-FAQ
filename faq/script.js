@@ -10,7 +10,7 @@ $(document).ready(function () {
       // apply data to templates
       $('#navTemplate-container').loadTemplate($('#navTemplate'),data.questions);
       $('#questionTemplate-container').loadTemplate($('#questionTemplate'),data.questions);
-      $('#content').scrollspy('refresh');
+      //$('#content').scrollspy('refresh');
     },
     error: function() {
       console.error('Error loading questions from file');
@@ -102,7 +102,7 @@ $(window).on('load',function () {
     scrollToHash(targetHash);
   });
   // Binds scrollspy
-  $('#content').scrollspy({target: '#navTemplate-container'})
+  //$('#content').scrollspy({target: '#navTemplate-container'})
 
   // Instantiates ClipboardJS
   new ClipboardJS('.btn');
