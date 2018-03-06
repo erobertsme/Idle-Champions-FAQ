@@ -1,4 +1,4 @@
-{
+var json = {
   "questions": [
     {
       "id": "Q01",

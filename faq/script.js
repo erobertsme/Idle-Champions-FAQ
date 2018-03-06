@@ -1,26 +1,12 @@
 $(document).ready(function () {
-  // jQuery Templates
-  // load json
-  $.ajax({
-    type: 'GET',
-    url: 'faq/questions.json',
-    dataType: 'json',
-    success: function(data) {
-      console.log('Success! Loaded questions from file');
-      // apply data to templates
-      $('#navTemplate-container').loadTemplate($('#navTemplate'),data.questions);
-      $('#questionTemplate-container').loadTemplate($('#questionTemplate'),data.questions);
-      //$('#content').scrollspy('refresh');
-    },
-    error: function() {
-      console.error('Error loading questions from file');
-    }
-  });
-});
 
-$(window).on('load',function () {
+  // apply data to templates
+  $('#navTemplate-container').loadTemplate($('#navTemplate'),json.questions);
+  $('#questionTemplate-container').loadTemplate($('#questionTemplate'),json.questions);
   // Get position of all nav links
   var navLinks = $('a.nav-link');
+  // Sets var to prevent scrollToHash being fired multiple times
+  var useSwitch = false;
   // Function to scroll to hash target
   function scrollToHash(targetHash) {
     // Opens linked accordion card
@@ -28,12 +14,15 @@ $(window).on('load',function () {
     // Toggle linked caret
     $(targetHash).prev().find('i').toggleClass('fa-caret-right fa-caret-down');
     // Waits for open animation to finish
-    $(targetHash).on('shown.bs.collapse', function(e) {
-      // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px +1)
-      var targetPosition = $('.card').find('div' + targetHash).prev().offset().top - 47;
-      // Scrolls to positon
-      $('#content').animate({scrollTop: targetPosition},200);
-    });
+    if (useSwitch === false) {
+      $(targetHash).on('shown.bs.collapse', function() {
+        // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px +1)
+        var targetPosition = $('.card').find('div' + targetHash).prev().offset().top - 47;
+        // Scrolls to positon
+        $('#content').animate({scrollTop: targetPosition},200);
+        var useSwitch = true;
+      });
+    }
 
   };
 
@@ -90,19 +79,20 @@ $(window).on('load',function () {
     event.preventDefault();
     // Sets hash link to var
     var targetHash = event.target.hash;
+    // Sets var to clicked button
+    var buttonClicked = event.target;
     // Toggles active link
     $('.nav-link.active').button('toggle');
     // Collapses all other opened accordion cards
-    $('.collapse').filter('.show').collapse('hide');
+    $('.collapse').filter('.show').not(targetHash).collapse('hide');
     // Toggles caret of opened accordion cards
     $('.fa-caret-down').toggleClass('fa-caret-down fa-caret-right');
     // Sets clicked link to active
-    $(event.target).button('toggle');
+    $(buttonClicked).button('toggle');
     // Scrolls to target
+    var useSwitch = false;
     scrollToHash(targetHash);
   });
-  // Binds scrollspy
-  //$('#content').scrollspy({target: '#navTemplate-container'})
 
   // Instantiates ClipboardJS
   new ClipboardJS('.btn');
