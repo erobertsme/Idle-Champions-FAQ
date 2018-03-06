@@ -8,7 +8,7 @@ $(document).ready(function() {
   // Get height of search bar
   var search = $('#search-row').outerHeight();
   // Get height of ToC nav questionTemplate
-  var navTitle = $('#tocTitle').outerHeight();
+  var navTitle = $('#tocTitle').outerHeight(true);
   // Function to scroll to hash target
   function scrollToHash(targetHash) {
     // Opens linked accordion card
