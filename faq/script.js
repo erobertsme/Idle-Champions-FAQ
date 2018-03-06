@@ -1,12 +1,14 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
   // apply data to templates
   $('#navTemplate-container').loadTemplate($('#navTemplate'),json.questions);
   $('#questionTemplate-container').loadTemplate($('#questionTemplate'),json.questions);
-  // Get position of all nav links
+  // Get select all nav-links
   var navLinks = $('a.nav-link');
-  // Sets var to prevent scrollToHash being fired multiple times
-  var useSwitch = false;
+  // Get height of search bar
+  var search = $('#search-row').outerHeight();
+  // Get height of ToC nav questionTemplate
+  var navTitle = $('#tocTitle').outerHeight();
   // Function to scroll to hash target
   function scrollToHash(targetHash) {
     // Opens linked accordion card
@@ -14,26 +16,23 @@ $(document).ready(function () {
     // Toggle linked caret
     $(targetHash).prev().find('i').toggleClass('fa-caret-right fa-caret-down');
     // Waits for open animation to finish
-    if (useSwitch === false) {
-      $(targetHash).on('shown.bs.collapse', function() {
-        // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px +1)
-        var targetPosition = $('.card').find('div' + targetHash).prev().offset().top - 47;
-        // Scrolls to positon
-        $('#content').animate({scrollTop: targetPosition},200);
-        var useSwitch = true;
-      });
-    }
-
+    $(targetHash).on('shown.bs.collapse', function() {
+      // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px +1)
+      var targetPosition = $('.card>div' + targetHash).prev().offset().top - search;
+      // Scrolls to positon
+      $('#content').animate({scrollTop: targetPosition},200);
+    });
   };
 
   // Direct link to question. Toggle caret. Auto scroll.
   if (location.hash && $(location.hash).length) {
+    var navHash = $(navLinks).filter('[href="' + location.hash + '"]');
     // Scrolls to linked accordion card
     scrollToHash(location.hash);
     // Toggles linked nav-link to active
-    $(navLinks).filter('[href="' + location.hash + '"]').toggleClass('active');
+    $(navHash).toggleClass('active');
     // Gets position of the top of the linked nav-link
-    var linkedNavPosition = $(navLinks).filter('[href="' + location.hash + '"]').prop('scrollHeight') + $(window).height();
+    var linkedNavPosition = $(navHash).offset().top - navTitle;
     // Scrolls navigation to the top of the linked nav-link
     $('nav').animate({scrollTop: linkedNavPosition},200);
   }
@@ -48,7 +47,7 @@ $(document).ready(function () {
   };
 
   // Search
-  $('#search').on("keypress click input", function (event) {
+  $('#search').on("keypress click input", function(event) {
     // Prevent enter keypress
     if (event.keyCode === 13) {
       event.preventDefault();
@@ -56,7 +55,7 @@ $(document).ready(function () {
     // Hides non-matching elements
     var val = $(this).val();
     if(val.length) {
-      $('.card').hide().filter(function () {
+      $('.card').hide().filter(function() {
         return $('.card-body', this).text().toLowerCase().indexOf(val.toLowerCase()) > -1;
       }).show();
     }
