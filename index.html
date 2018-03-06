@@ -8,11 +8,11 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-    <script src="assets/jquery.loadTemplate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js" integrity="sha256-meF2HJJ2Tcruwz3z4XcxYDRMxKprjdruBHc3InmixCQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.loadtemplate/1.5.10/jquery.loadTemplate.min.js" integrity="sha256-mF3k3rmuuGVi/6GhJ5atwMd7JsTsQhULB6GyLaFPrMU=" crossorigin="anonymous"></script>
     <script src="faq/script.js"></script>
     <!-- Hide Nav Scrollbar -->
-    <style type="text/css">#table-of-contents::-webkit-scrollbar {width: 0px;}</style>
+    <style type="text/css">#table-of-contents::-webkit-scrollbar {width: 0px;} body {overflow: hidden;} nav {overflow-y: scroll; height: 100vh;} .accordion {position: relative;} #content {overflow-y: scroll;} div.container-fluid>div.row {max-height: 100vh;} #spacer {height: 25vh;}</style>
   </head>
 
   <body>
@@ -20,7 +20,7 @@
       <div class="row">
         <div class="col-2 d-inline-block p-0 border-right">
 
-          <nav class="nav flex-column nav-pills sticky-top" id="table-of-contents" style="overflow-y: scroll; height: 100vh;">
+          <nav class="nav flex-column nav-pills" id="table-of-contents">
             <small>
               <div class="text-center py-2 sticky-top bg-white"><b>Table of Contents</b></div>
               <span id="navTemplate-container">
@@ -28,11 +28,12 @@
                     <li class="nav-item"><a class="nav-link" data-content="question" data-href="href"></a></li>
                 </script>
               </span>
+              <div id="spacer"></div>
             </small>
           </nav>
 
         </div>
-        <div class="col-xl-9 col-10" style="height: 100vh;">
+        <div class="col-10 pr-3" id="content">
           <div class="row justify-content-center text-center">
             <div class="col"><h1>Idle Champions Community FAQ</h1></div>
           </div>
@@ -62,7 +63,7 @@
 
           <!-- Accordion -->
           <div class="col">
-            <div class="accordion" data-spy="scroll" data-target="#table-of-contents" style="min-width: 100%;" id="questionTemplate-container">
+            <div class="accordion" id="questionTemplate-container">
 
             <!-- Question Template -->
             <script type="text/html" id="questionTemplate">
@@ -95,7 +96,7 @@
         </div>
 
         <div class="row my-2"><div class="col text-center">Credits: Archimedes (Author), ToRA (Code)</div></div>
-
+        <div id="spacer"></div>
       </div>
     <!-- End row -->
     </div>

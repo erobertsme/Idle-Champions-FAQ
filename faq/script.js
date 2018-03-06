@@ -10,6 +10,7 @@ $(document).ready(function () {
       // apply data to templates
       $('#navTemplate-container').loadTemplate($('#navTemplate'),data.questions);
       $('#questionTemplate-container').loadTemplate($('#questionTemplate'),data.questions);
+      $('#questionTemplate-container').scrollspy('refresh');
     },
     error: function() {
       console.error('Error loading questions from file');
@@ -100,6 +101,8 @@ $(window).on('load',function () {
     // Scrolls to target
     scrollToHash(targetHash);
   });
+  // Binds scrollspy
+  $('#questionTemplate-container').scrollspy({target: '#table-of-contents'})
 
   // Instantiates ClipboardJS
   new ClipboardJS('.btn');
