@@ -12,7 +12,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.loadtemplate/1.5.10/jquery.loadTemplate.min.js" integrity="sha256-mF3k3rmuuGVi/6GhJ5atwMd7JsTsQhULB6GyLaFPrMU=" crossorigin="anonymous"></script>
     <!-- Hide Nav Scrollbar -->
     <style type="text/css">
-      #table-of-contents::-webkit-scrollbar {width: 2px;}
+      #table-of-contents::-webkit-scrollbar {width: 0px;}
+      #tocTitle {margin: 0; background-color: white;}
       div.container-fluid>div.row {max-height: 100vh;}
       body {overflow: hidden;}
       nav {overflow-y: scroll; height: 100vh;}
@@ -25,7 +26,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-2 px-0 border-right">
-          <div class="text-center py-2 sticky-top bg-white border-bottom h6" id="tocTitle">Table of Contents</div>
+          <div class="text-center py-2 sticky-top border-bottom h6" id="tocTitle">Table of Contents</div>
           <nav class="nav flex-column nav-pills" id="table-of-contents">
             <small>
               <span id="navTemplate-container">
@@ -47,14 +48,12 @@
                 <small>
                   This is a voluntarily run Community FAQ that is a work in progress. If you spot any mistakes, typos, errors, bugs, or have any questions that you think would be a good addition to this FAQ<br />
                   please contact @archimedes#5179 in the <a target="_blank" href="https://discord.gg/KqS65JG">Official Idle Champions Discord Server</a> or submit an issue here: <a target="_blank" href="https://github.com/omfgtora/Idle-Champions-FAQ/issues">https://github.com/omfgtora/Idle-Champions-FAQ/issues</a>
-                  <br /><br />
-                  You can link directly to a specific question by clicking the <button class="btn btn-sm m-0 d-inline" title="Copy direct link"><i class="fas fa-link"></i></button> button in the answer.
               </small>
             </div>
           </div>
 
           <!-- Search Bar -->
-          <div class="row pt-4 mb-4 sticky-top bg-white" id="search-row">
+          <div class="row pt-3 mb-4 sticky-top bg-white" id="search-row">
             <div class="col">
               <form class="mb-0">
                 <div class="form-group m-0">
@@ -72,21 +71,20 @@
 
             <!-- Question Template -->
             <script type="text/html" id="questionTemplate">
-              <div class="card">
+              <div class="card my-1" data-id="id">
 
                 <div class="card-header">
-                  <i class="fas fa-caret-right"></i> <h5 class="d-inline" data-content="question"></h5>
+                  <i class="fas fa-caret-right"></i> <h5 class="d-inline" data-content="question"></h5><div class="float-right d-inline" data-content="link"></div>
                 </div>
 
-                <div data-id="id" class="collapse" data-parent="#accordion">
+                <div class="collapse" data-parent="#accordion">
                   <div class="card-body">
                     <div class="row">
                       <div class="col" data-content="answer">
                       </div>
                     </div>
                     <div class="row pt-3 text-right">
-                      <div class="col" data-content="link">
-                      </div>
+
                     </div>
                   </div>
                 </div>

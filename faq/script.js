@@ -12,16 +12,13 @@ $(document).ready(function() {
   // Function to scroll to hash target
   function scrollToHash(targetHash) {
     // Opens linked accordion card
-    $(targetHash + '.collapse').collapse('show');
+    $(targetHash).find('.collapse').collapse('show');
     // Toggle linked caret
-    $(targetHash).prev().find('i').toggleClass('fa-caret-right fa-caret-down');
-    // Waits for open animation to finish
-    $(targetHash).on('shown.bs.collapse', function() {
-      // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px -1)
-      var targetPosition = $('.card>div' + targetHash).prev().offset().top - search -1;
-      // Scrolls to positon
-      $('#content').animate({scrollTop: targetPosition},200);
-    });
+    $(targetHash).find('i').toggleClass('fa-caret-right fa-caret-down');
+    // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px -1)
+    var targetPosition = $(targetHash).offset().top - search -5;
+    // Scrolls to positon
+    $('#content').animate({scrollTop: targetPosition},200);
   };
 
   // Direct link to question. Toggle caret. Auto scroll.
@@ -43,7 +40,7 @@ $(document).ready(function() {
     // Open first accordion card
     $('#Q01').collapse('show');
     // Toggle firsrt accordion card caret
-    $('#Q01').prev().find('i').toggleClass('fa-caret-right fa-caret-down');
+    $('#Q01').find('i').toggleClass('fa-caret-right fa-caret-down');
   };
 
   // Search
@@ -72,7 +69,6 @@ $(document).ready(function() {
   });
 
   // When navigation link is clicked it scrolls to linked question
-  var navLinks = $('a.nav-link');
   $(navLinks).click(function(event) {
     // Prevent open link
     event.preventDefault();
@@ -88,9 +84,9 @@ $(document).ready(function() {
     $('.fa-caret-down').toggleClass('fa-caret-down fa-caret-right');
     // Sets clicked link to active
     $(buttonClicked).button('toggle');
+    $(targetHash).find('.collapse').collapse('show');
     // Scrolls to target
-    var useSwitch = false;
-    scrollToHash(targetHash);
+    //scrollToHash(targetHash);
   });
 
   // Instantiates ClipboardJS
