@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.loadtemplate/1.5.10/jquery.loadTemplate.min.js" integrity="sha256-mF3k3rmuuGVi/6GhJ5atwMd7JsTsQhULB6GyLaFPrMU=" crossorigin="anonymous"></script>
     <!-- Hide Nav Scrollbar -->
     <style type="text/css">
-      #table-of-contents::-webkit-scrollbar {width: 0px;}
+      #table-of-contents::-webkit-scrollbar {width: 2px;}
       div.container-fluid>div.row {max-height: 100vh;}
       body {overflow: hidden;}
       nav {overflow-y: scroll; height: 100vh;}
@@ -25,10 +25,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-2 px-0 border-right">
-
+          <div class="text-center py-2 sticky-top bg-white border-bottom h6" id="tocTitle">Table of Contents</div>
           <nav class="nav flex-column nav-pills" id="table-of-contents">
             <small>
-              <div class="text-center py-2 sticky-top bg-white" id="tocTitle"><b>Table of Contents</b></div>
               <span id="navTemplate-container">
                 <script type="text/html" id="navTemplate">
                     <li class="nav-item"><a class="nav-link" data-content="question" data-href="href"></a></li>
