@@ -9,47 +9,47 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js" integrity="sha256-meF2HJJ2Tcruwz3z4XcxYDRMxKprjdruBHc3InmixCQ=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.loadtemplate/1.5.10/jquery.loadTemplate.min.js" integrity="sha256-mF3k3rmuuGVi/6GhJ5atwMd7JsTsQhULB6GyLaFPrMU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js" integrity="sha256-+JMHsXRyeTsws/tzbIh5YHQxRdKCuNjmvNcTFtY6DLc=" crossorigin="anonymous"></script>
     <!-- Hide Nav Scrollbar -->
     <style type="text/css">
-      body {overflow: hidden;} /* Prevents stretching */
-      nav {overflow-y: scroll; height: 100vh;} /* Allows scroll on nav */
-      div.container-fluid>div.row {max-height: 100vh;} /* Allows scrolling */
-      #table-of-contents::-webkit-scrollbar {width: 0px;} /* Hides nav scroll */
-      #tocTitle {margin: 0; background-color: white;}
+      nav {font-size: 1.4vh;} /* Allows scroll on nav */
+      #nav {padding: 0; max-height: 100vh; overflow-y: scroll;}
+      #nav::-webkit-scrollbar {width: 0px;} /* Hides nav scroll */
+      #tocTitle {margin: 0; background-color: white; padding-top: 8px; padding-bottom: 8px;}
       #search-row {padding-top: 20px; margin-bottom: 1vh; background-color: white;}
-      #content {overflow-y: scroll;}
       #spacer {height: 25vh;}
+      #header {font-size: 1.4vh;}
+      a.nav-link {color: black; width: 100%; font-weight: 450;}
+      a.nav-link:hover {background-color: #ace;}
     </style>
   </head>
 
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-2 px-0 border-right">
-          <div class="text-center py-2 sticky-top border-bottom h6" id="tocTitle">Table of Contents</div>
+        <div class="col-2 border-right sticky-top" id="nav">
+          <div class="text-center sticky-top border-bottom h6" id="tocTitle">Table of Contents</div>
           <nav class="nav flex-column nav-pills" id="table-of-contents">
-            <small>
-              <span id="navTemplate-container">
-                <script type="text/html" id="navTemplate">
-                    <li class="nav-item"><a class="nav-link" data-content="question" data-href="href"></a></li>
-                </script>
-              </span>
-              <div id="spacer"></div>
-            </small>
+            <!-- Nav Template -->
+            <script type="text/x-handlebars" id="navTemplate">
+              {{#each questions}}
+                <a class="nav-link" href="#{{ id }}">{{ question }}</a>
+              {{/each}}
+            </script>
+            <!-- End Template -->
           </nav>
+          <div id="spacer"><!-- Spacer --></div>
 
         </div>
         <div class="col-10 pr-3" id="content">
-          <div class="row text-center">
+          <!-- Title -->
+          <div class="row text-center" id="title">
             <div class="col"><h1>Idle Champions Community FAQ</h1></div>
           </div>
-          <div class="row text-center">
+          <div class="row text-center" id="header">
               <div class="col p-2">
-                <small>
-                  This is a voluntarily run Community FAQ that is a work in progress. If you spot any mistakes, typos, errors, bugs, or have any questions that you think would be a good addition to this FAQ<br />
-                  please contact @archimedes#5179 in the <a target="_blank" href="https://discord.gg/KqS65JG">Official Idle Champions Discord Server</a> or submit an issue here: <a target="_blank" href="https://github.com/omfgtora/Idle-Champions-FAQ/issues">https://github.com/omfgtora/Idle-Champions-FAQ/issues</a>
-              </small>
+                This is a voluntarily run Community FAQ that is a work in progress. If you spot any mistakes, typos, errors, bugs, or have any questions that you think would be a good addition to this FAQ<br />
+                please contact @archimedes#5179 in the <a target="_blank" href="https://discord.gg/KqS65JG">Official Idle Champions Discord Server</a> or submit an issue here: <a target="_blank" href="https://github.com/omfgtora/Idle-Champions-FAQ/issues">https://github.com/omfgtora/Idle-Champions-FAQ/issues</a>
             </div>
           </div>
 
@@ -64,48 +64,49 @@
             </div>
           </div>
 
-          <div class="row">
+          <div class="row" id="questions">
 
           <!-- Accordion -->
           <div class="col">
             <div class="accordion" id="questionTemplate-container">
 
             <!-- Question Template -->
-            <script type="text/html" id="questionTemplate">
-              <div class="card my-1" data-id="id">
+            <script type="text/x-handlebars" id="questionTemplate">
+              {{#each questions}}
+              <div class="card my-1" id="{{ id }}">
 
                 <div class="card-header">
-                  <span class="icon-angle-right"></span> <h5 class="d-inline" data-content="question"></h5><div class="float-right" data-content="link"></div>
+                  <span class="icon-angle-right"></span> <h5 class="d-inline">{{ question }}</h5><div class="float-right"><button class="btn btn-sm d-inline m-0" title="Copy direct link" data-clipboard-text="https://idlechampionsfaq.netlify.com/{{ href }}"><span class="icon-link"></i></button></div>
                 </div>
 
                 <div class="collapse" data-parent="#accordion">
                   <div class="card-body">
                     <div class="row">
-                      <div class="col" data-content="answer">
+                      <div class="col">
+                        {{{ answer }}}
                       </div>
-                    </div>
-                    <div class="row pt-3 text-right">
-
                     </div>
                   </div>
                 </div>
 
               </div>
+              {{/each}}
             </script>
+            <!-- End Template -->
 
-            <!-- End Accordion -->
             </div>
+            <!-- End Accordion -->
           </div>
-        <!-- End Row -->
         </div>
+        <!-- End Content Row -->
 
         <div class="row my-2"><div class="col text-center">Credits: Archimedes (Author), ToRA (Code)</div></div>
         <div id="spacer"></div>
       </div>
-    <!-- End row -->
     </div>
-  <!-- End Container -->
+    <!-- End Container row -->
   </div>
+  <!-- End Container -->
 
   <script src="faq/questions.js"></script>
   <script src="faq/script.js"></script>

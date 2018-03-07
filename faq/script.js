@@ -1,8 +1,15 @@
 $(document).ready(function() {
 
-  // Apply data to templates containers
-  $('#navTemplate-container').loadTemplate($('#navTemplate'),json.questions);
-  $('#questionTemplate-container').loadTemplate($('#questionTemplate'),json.questions);
+  // Handlebars template for nav
+  var navSource = $('#navTemplate').html();
+  var navTemplate = Handlebars.compile(navSource);
+  var compiledNav = navTemplate(data);
+  $('#table-of-contents').html(compiledNav);
+  // Handlebars template for content
+  var questionSource = $('#questionTemplate').html();
+  var questionTemplate = Handlebars.compile(questionSource);
+  var compiledQuestions = questionTemplate(data);
+  $('#questionTemplate-container').html(compiledQuestions);
   // Get select all nav-links
   var navLinks = $('a.nav-link');
   // Get all cards
@@ -76,9 +83,9 @@ $(document).ready(function() {
     // Prevent open link
     event.preventDefault();
     // Sets var to link target
-    var link = event.target.hash;
+    var linkTarget = $(event.target.hash);
     // Sets var to all cards that are not the linked card
-    var otherCards = $(cards).not(link);
+    var otherCards = $(cards).not(linkTarget);
     // Toggles active link
     $('.nav-link.active').button('toggle');
     // Sets clicked link to active
@@ -88,8 +95,8 @@ $(document).ready(function() {
     // Toggles caret of all opened accordion cards
     $(otherCards).find('span.icon-angle-down').toggleClass('icon-angle-right icon-angle-down');
     // Opens linked card if not already open
-    if (!$(link).children('.collapse').hasClass('show')) {
-      $(link + ' .card-header').trigger('click');
+    if (!$(linkTarget).children('.collapse').hasClass('show')) {
+      $(linkTarget).children('.card-header').trigger('click');
     }
     // Scrolls to linked card
     //
