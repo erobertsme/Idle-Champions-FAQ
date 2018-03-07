@@ -9,6 +9,8 @@ $(document).ready(function() {
   var search = $('#search-row').outerHeight();
   // Get height of ToC nav questionTemplate
   var navTitle = $('#tocTitle').outerHeight(true);
+  // Get all cards
+  var cards = $('.card');
 
   // Direct link to question. Toggle caret. Auto scroll.
   if (location.hash && $(location.hash).length) {
@@ -57,8 +59,8 @@ $(document).ready(function() {
   });
 
   // Toggles card and caret on click
-  var cards = $('.card .card-header');
-  $(cards).click(function(event) {
+  var cardHeaders = $('.card .card-header');
+  $(cardHeaders).click(function(event) {
     var card = $(event.target).not('div > button, button > span').parents('.card').first();
     $(card).children('.collapse').collapse('toggle');
     $(card).find('.card-header > span').toggleClass('icon-angle-right icon-angle-down');
@@ -78,13 +80,10 @@ $(document).ready(function() {
     $(event.target).button('toggle');
     // Collapses all other opened accordion cards
     $('.collapse').filter('.show').collapse('hide');
-    // Toggles caret of opened accordion cards
-    $(cards).find('span.icon-angle-down').not(link + ' > .card-header > span').toggleClass('icon-angle-right icon-angle-down');
+    // Toggles caret of all opened accordion cards
+    $(cards).not(link).find('span.icon-angle-down').toggleClass('icon-angle-right icon-angle-down');
     // Opens linked card
     $(link + ' .card-header').trigger('click');
-    // Toggles linked caret
-    console.log(link);
-    $(link).find('.card-header > span').toggleClass('icon-angle-right icon-angle-down');
     // Scrolls to linked card
     //
   });
