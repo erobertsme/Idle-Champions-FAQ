@@ -20,15 +20,15 @@ $(document).ready(function() {
     // Toggle linked caret
     $(location.hash).find('.card-header > span').toggleClass('icon-angle-right icon-angle-down');
     // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px -1)
-    var targetPosition = $(location.hash).offset().top - search -5;
+    var linkedCard = $(location.hash).offset().top - search - 5;
     // Scrolls to positon
-    $('#content').animate({scrollTop: targetPosition},200);
+    $('#content').animate({scrollTop: linkedCard},200);
     // Toggles linked nav-link to active
     $(navHash).toggleClass('active');
     // Gets position of the top of the linked nav-link
-    var linkedNavPosition = $(navHash).offset().top - navTitle;
+    var linkedNav = $(navHash).offset().top - navTitle;
     // Scrolls navigation to the top of the linked nav-link
-    $('nav').animate({scrollTop: linkedNavPosition},200);
+    $('nav').animate({scrollTop: linkedNav},200);
   }
   // If no direct link
   else {
@@ -79,7 +79,7 @@ $(document).ready(function() {
     // Sets clicked link to active
     $(event.target).button('toggle');
     // Collapses all other opened accordion cards
-    $('.collapse').filter('.show').collapse('hide');
+    $(cards).not(link).find('.collapse.show').collapse('hide');
     // Toggles caret of all opened accordion cards
     $(cards).not(link).find('span.icon-angle-down').toggleClass('icon-angle-right icon-angle-down');
     // Opens linked card
