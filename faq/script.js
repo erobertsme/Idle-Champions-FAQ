@@ -1,20 +1,21 @@
 $(document).ready(function() {
 
-  // apply data to templates
+  // Apply data to templates containers
   $('#navTemplate-container').loadTemplate($('#navTemplate'),json.questions);
   $('#questionTemplate-container').loadTemplate($('#questionTemplate'),json.questions);
   // Get select all nav-links
   var navLinks = $('a.nav-link');
-  // Get height of search bar
-  var search = $('#search-row').outerHeight();
-  // Get height of ToC nav questionTemplate
-  var navTitle = $('#tocTitle').outerHeight(true);
   // Get all cards
   var cards = $('.card');
+  // Get height of search bar
+  var search = $('#search-row').outerHeight();
+  // Get height of nav title
+  var navTitle = $('#tocTitle').outerHeight(true);
+
 
   // Direct link to question. Toggle caret. Auto scroll.
   if (location.hash && $(location.hash).length) {
-    var navHash = $(navLinks).filter('[href="' + location.hash + '"]');
+    var linkedNav = $(navLinks).filter('[href="' + location.hash + '"]');
     // Opens linked accordion card
     $(location.hash).find('.collapse').collapse('show');
     // Toggle linked caret
@@ -24,11 +25,11 @@ $(document).ready(function() {
     // Scrolls to positon
     $('#content').animate({scrollTop: linkedCard},200);
     // Toggles linked nav-link to active
-    $(navHash).toggleClass('active');
+    $(linkedNav).toggleClass('active');
     // Gets position of the top of the linked nav-link
-    var linkedNav = $(navHash).offset().top - navTitle;
+    var linkedNavPosition = $(linkedNav).offset().top - navTitle;
     // Scrolls navigation to the top of the linked nav-link
-    $('nav').animate({scrollTop: linkedNav},200);
+    $('nav').animate({scrollTop: linkedNavPosition},200);
   }
   // If no direct link
   else {
@@ -41,18 +42,20 @@ $(document).ready(function() {
   };
 
   // Search
-  $('#search').on("keypress click input", function(event) {
+  $('#search').on("keypress input", function(event) {
     // Prevent enter keypress
     if (event.keyCode === 13) {
       event.preventDefault();
     }
-    // Hides non-matching elements
+    // Hides non-matching cards (I did not write this. I only modified something I found on stackoverflow)
     var val = $(this).val();
+    // If something in search bar
     if(val.length) {
       $('.card').hide().filter(function() {
         return $('.card-body', this).text().toLowerCase().indexOf(val.toLowerCase()) > -1;
       }).show();
     }
+    // If nothing in search bar
     else {
       $('.card').show();
     }
@@ -72,16 +75,18 @@ $(document).ready(function() {
   $(navLinks).click(function(event) {
     // Prevent open link
     event.preventDefault();
-    // Sets var to clicked button
+    // Sets var to link target
     var link = event.target.hash;
+    // Sets var to all cards that are not the linked card
+    var otherCards = $(cards).not(link);
     // Toggles active link
     $('.nav-link.active').button('toggle');
     // Sets clicked link to active
     $(event.target).button('toggle');
     // Collapses all other opened accordion cards
-    $(cards).not(link).find('.collapse.show').collapse('hide');
+    $(otherCards).children('.collapse.show').collapse('hide');
     // Toggles caret of all opened accordion cards
-    $(cards).not(link).find('span.icon-angle-down').toggleClass('icon-angle-right icon-angle-down');
+    $(otherCards).find('span.icon-angle-down').toggleClass('icon-angle-right icon-angle-down');
     // Opens linked card if not already open
     if (!$(link).children('.collapse').hasClass('show')) {
       $(link + ' .card-header').trigger('click');

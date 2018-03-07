@@ -12,12 +12,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.loadtemplate/1.5.10/jquery.loadTemplate.min.js" integrity="sha256-mF3k3rmuuGVi/6GhJ5atwMd7JsTsQhULB6GyLaFPrMU=" crossorigin="anonymous"></script>
     <!-- Hide Nav Scrollbar -->
     <style type="text/css">
-      #table-of-contents::-webkit-scrollbar {width: 0px;}
+      body {overflow: hidden;} /* Prevents stretching */
+      nav {overflow-y: scroll; height: 100vh;} /* Allows scroll on nav */
+      div.container-fluid>div.row {max-height: 100vh;} /* Allows scrolling */
+      #table-of-contents::-webkit-scrollbar {width: 0px;} /* Hides nav scroll */
       #tocTitle {margin: 0; background-color: white;}
       #search-row {padding-top: 20px; margin-bottom: 1vh; background-color: white;}
-      div.container-fluid>div.row {max-height: 100vh;}
-      body {overflow: hidden;}
-      nav {overflow-y: scroll; height: 100vh;}
       #content {overflow-y: scroll;}
       #spacer {height: 25vh;}
     </style>
