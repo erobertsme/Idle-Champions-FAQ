@@ -83,6 +83,7 @@ $(document).ready(function() {
     // Opens linked card
     $(link + ' .card-header').trigger('click');
     // Toggles linked caret
+    console.log(link);
     $(link).find('.card-header > span').toggleClass('icon-angle-right icon-angle-down');
     // Scrolls to linked card
     //
