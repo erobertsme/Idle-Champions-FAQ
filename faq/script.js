@@ -9,23 +9,18 @@ $(document).ready(function() {
   var search = $('#search-row').outerHeight();
   // Get height of ToC nav questionTemplate
   var navTitle = $('#tocTitle').outerHeight(true);
-  // Function to scroll to hash target
-  function scrollToHash(targetHash) {
-    // Opens linked accordion card
-    $(targetHash).find('.collapse').collapse('show');
-    // Toggle linked caret
-    $(targetHash).find('i').toggleClass('fa-caret-right fa-caret-down');
-    // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px -1)
-    var targetPosition = $(targetHash).offset().top - search -5;
-    // Scrolls to positon
-    $('#content').animate({scrollTop: targetPosition},200);
-  };
 
   // Direct link to question. Toggle caret. Auto scroll.
   if (location.hash && $(location.hash).length) {
     var navHash = $(navLinks).filter('[href="' + location.hash + '"]');
-    // Scrolls to linked accordion card
-    scrollToHash(location.hash);
+    // Opens linked accordion card
+    $(location.hash).find('.collapse').collapse('show');
+    // Toggle linked caret
+    $(location.hash).find('.card-header > span').toggleClass('icon-angle-right icon-angle-down');
+    // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px -1)
+    var targetPosition = $(location.hash).offset().top - search -5;
+    // Scrolls to positon
+    $('#content').animate({scrollTop: targetPosition},200);
     // Toggles linked nav-link to active
     $(navHash).toggleClass('active');
     // Gets position of the top of the linked nav-link
@@ -38,9 +33,9 @@ $(document).ready(function() {
     // Activate first nav-link
     $('.nav-link[href="#Q01"]').addClass('active');
     // Open first accordion card
-    $('#Q01').collapse('show');
+    $('#Q01').find('.collapse').collapse('show');
     // Toggle firsrt accordion card caret
-    $('#Q01').find('i').toggleClass('fa-caret-right fa-caret-down');
+    $('#Q01').find('.card-header > span').toggleClass('icon-angle-right icon-angle-down');
   };
 
   // Search
@@ -62,31 +57,35 @@ $(document).ready(function() {
   });
 
   // Toggles card and caret on click
-  var cards = $('.card');
+  var cards = $('.card .card-header');
   $(cards).click(function(event) {
-    $(event.target).find('i').toggleClass('fa-caret-right fa-caret-down');
-    $(event.target).next().collapse('toggle');
+    var card = $(event.target).not('div > button, button > span').parents('.card').first();
+    $(card).children('.collapse').collapse('toggle');
+    $(card).find('.card-header > span').toggleClass('icon-angle-right icon-angle-down');
   });
+
+
 
   // When navigation link is clicked it scrolls to linked question
   $(navLinks).click(function(event) {
     // Prevent open link
     event.preventDefault();
-    // Sets hash link to var
-    var targetHash = event.target.hash;
     // Sets var to clicked button
-    var buttonClicked = event.target;
+    var link = event.target.hash;
     // Toggles active link
     $('.nav-link.active').button('toggle');
-    // Collapses all other opened accordion cards
-    $('.collapse').filter('.show').not(targetHash).collapse('hide');
-    // Toggles caret of opened accordion cards
-    $('.fa-caret-down').toggleClass('fa-caret-down fa-caret-right');
     // Sets clicked link to active
-    $(buttonClicked).button('toggle');
-    $(targetHash).find('.collapse').collapse('show');
-    // Scrolls to target
-    //scrollToHash(targetHash);
+    $(event.target).button('toggle');
+    // Collapses all other opened accordion cards
+    $('.collapse').filter('.show').collapse('hide');
+    // Toggles caret of opened accordion cards
+    $(cards).find('span.icon-angle-down').toggleClass('icon-angle-right icon-angle-down');
+    // Opens linked card
+    $(link + ' .card-header').trigger('click');
+    // Toggles linked caret
+    //
+    // Scrolls to linked card
+    //
   });
 
   // Instantiates ClipboardJS
