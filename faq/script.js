@@ -79,11 +79,11 @@ $(document).ready(function() {
     // Collapses all other opened accordion cards
     $('.collapse').filter('.show').collapse('hide');
     // Toggles caret of opened accordion cards
-    $(cards).find('span.icon-angle-down').toggleClass('icon-angle-right icon-angle-down');
+    $(cards).find('span.icon-angle-down').not(link + ' > .card-header > span').toggleClass('icon-angle-right icon-angle-down');
     // Opens linked card
     $(link + ' .card-header').trigger('click');
     // Toggles linked caret
-    //
+    $(link).find('.card-header > span').toggleClass('icon-angle-right icon-angle-down');
     // Scrolls to linked card
     //
   });
