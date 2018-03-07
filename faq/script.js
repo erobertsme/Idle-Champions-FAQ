@@ -82,8 +82,10 @@ $(document).ready(function() {
     $(cards).not(link).find('.collapse.show').collapse('hide');
     // Toggles caret of all opened accordion cards
     $(cards).not(link).find('span.icon-angle-down').toggleClass('icon-angle-right icon-angle-down');
-    // Opens linked card
-    $(link + ' .card-header').trigger('click');
+    // Opens linked card if not already open
+    if (!$(link).children('.collapse').hasClass('show')) {
+      $(link + ' .card-header').trigger('click');
+    }
     // Scrolls to linked card
     //
   });
