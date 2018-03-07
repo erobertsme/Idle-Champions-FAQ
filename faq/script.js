@@ -30,7 +30,7 @@ $(document).ready(function() {
     // Gets position of the top of the linked accordion card and compensates for sticky search bar (46px -1)
     var linkedCard = $(location.hash).offset().top - search - 5;
     // Scrolls to positon
-    $('#content').animate({scrollTop: linkedCard},200);
+    $('body').animate({scrollTop: linkedCard},200);
     // Toggles linked nav-link to active
     $(linkedNav).toggleClass('active');
     // Gets position of the top of the linked nav-link
