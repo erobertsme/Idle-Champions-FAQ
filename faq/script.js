@@ -145,6 +145,8 @@ $(document).ready(function() {
 
   // Dark Mode
   $('#mode').click(function(event) {
+    $('#mode span').toggleClass('icon-lightbulb-dark icon-lightbulb');
+
     $('.card a').toggleClass('text-black');
     $('table, #header a').toggleClass('text-light');
     $('a.nav-link').toggleClass('bg-dark text-light');
