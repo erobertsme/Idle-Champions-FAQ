@@ -144,15 +144,27 @@ $(document).ready(function() {
   });
 
   // Dark Mode
-  $('#mode').click(function(event) {
+  function darkMode() {
     $('#mode span').toggleClass('icon-lightbulb-dark icon-lightbulb');
-
     $('.card a').toggleClass('text-black');
     $('table, #header a').toggleClass('text-light');
     $('a.nav-link').toggleClass('bg-dark text-light');
     $('nav, #tocTitle, .card, #content, #search-row, #spacer, .card-header button.btn').toggleClass('bg-dark text-light');
     $('.card-body').toggleClass('bg-secondary');
     $('.card-header').toggleClass('bg-black')
+  }
+  if (Cookies.get('darkMode') === 'on') {darkMode()}
+  $('#mode').click(function(event) {
+    if (!Cookies.get('darkMode')) {
+      Cookies.set('darkMode', 'on');
+    }
+    else if (Cookies.get('darkMode') === 'off') {
+      Cookies.set('darkMode', 'on');
+    }
+    else {
+      Cookies.set('darkMode', 'off');
+    }
+    darkMode();
   });
 
   // Instantiates ClipboardJS
