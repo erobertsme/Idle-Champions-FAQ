@@ -20,6 +20,9 @@
       #header {font-size: 1.4vh;}
       a.nav-link {color: black; width: 100%; font-weight: 450;}
       a.nav-link:hover {background-color: #ace;}
+      .bg-black {background-color: #0d0d0d;}
+      .text-black {color: black;}
+      .text-black:hover {color: white;}
     </style>
   </head>
 
@@ -43,7 +46,10 @@
         <div class="col-10 pr-3" id="content">
           <!-- Title -->
           <div class="row text-center" id="title">
-            <div class="col"><h1>Idle Champions Community FAQ</h1></div>
+            <div class="col">
+              <h1>Idle Champions Community FAQ</h1>
+              <button class="btn mr-3 float-right" id="mode"><span class="icon-lightbulb"></span></button>
+            </div>
           </div>
           <div class="row text-center" id="header">
               <div class="col p-2">
@@ -75,7 +81,10 @@
               <div class="card my-1" id="{{ id }}">
 
                 <div class="card-header">
-                  <span class="icon-angle-right"></span> <h5 class="d-inline">{{ question }}</h5><div class="float-right"><button class="btn btn-sm d-inline m-0" title="Copy direct link" data-clipboard-text="https://idlechampionsfaq.netlify.com/#{{ id }}"><span class="icon-link"></i></button></div>
+                  <span class="icon-angle-right"></span> <h5 class="d-inline">{{ question }}</h5>
+                  <div class="float-right">
+                    <button class="btn btn-sm d-inline m-0" title="Copy direct link" data-clipboard-text="https://idlechampionsfaq.netlify.com/#{{ id }}"><span class="icon-link"></i></button>
+                  </div>
                 </div>
 
                 <div class="collapse" data-parent="#accordion">

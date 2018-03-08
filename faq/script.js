@@ -143,6 +143,16 @@ $(document).ready(function() {
     }
   });
 
+  // Dark Mode
+  $('#mode').click(function(event) {
+    $('.card a').toggleClass('text-black');
+    $('table, #header a').toggleClass('text-light');
+    $('a.nav-link').toggleClass('bg-dark text-light');
+    $('nav, #tocTitle, .card, #content, #search-row, #spacer, .card-header button.btn').toggleClass('bg-dark text-light');
+    $('.card-body').toggleClass('bg-secondary');
+    $('.card-header').toggleClass('bg-black')
+  });
+
   // Instantiates ClipboardJS
   new ClipboardJS('.btn');
 });
