@@ -78,28 +78,69 @@ $(document).ready(function() {
 
 
 
-  // When navigation link is clicked it scrolls to linked question
+  // When navigation link is clicked it scrolls to linked question -- Thanks KenavR
   $(navLinks).click(function(event) {
     // Prevent open link
     event.preventDefault();
-    // Sets var to link target
-    var linkTarget = $(event.target.hash);
-    // Sets var to all cards that are not the linked card
-    var otherCards = $(cards).not(linkTarget);
+    // Sets var to clicked button
+    var link = event.target.hash;
+    var $linkTarget = $(event.target.hash);
     // Toggles active link
-    $('.nav-link.active').button('toggle');
+    $(".nav-link.active").button("toggle");
     // Sets clicked link to active
-    $(event.target).button('toggle');
+    $(event.target).button("toggle");
     // Collapses all other opened accordion cards
-    $(otherCards).children('.collapse.show').collapse('hide');
-    // Toggles caret of all opened accordion cards
-    $(otherCards).find('span.icon-angle-down').toggleClass('icon-angle-right icon-angle-down');
-    // Opens linked card if not already open
-    if (!$(linkTarget).children('.collapse').hasClass('show')) {
-      $(linkTarget).children('.card-header').trigger('click');
+
+    // -----------------------------------------------
+
+    // Get all cards that need to be collapsed
+    var $cardsToHide = $(cards)
+      .not(link)
+      .children(".collapse.show");
+    var cardsToHideCount = $cardsToHide.length;
+    var completed = 0;
+
+    function scroll($card) {
+      var position = $card.position().top + search + 60;
+      $("body").animate({ scrollTop: position }, 200);
     }
-    // Scrolls to linked card
-    //
+
+    function areAllCardsCollapsed(completed, count) {
+      return completed >= count;
+    }
+
+    function handleCardHidden(event) {
+      // Count how many are finished collapsing
+      completed++;
+      if (areAllCardsCollapsed(completed, cardsToHideCount)) {
+        scroll($(link));
+      }
+
+      $(event.target).off("hidden.bs.collapse");
+    }
+
+    function toggleCaret($cardParent) {
+      $cardParent
+        .find("span.icon-angle-down")
+        .toggleClass("icon-angle-right icon-angle-down");
+    }
+
+    function processCard(_, card) {
+      var $card = $(card);
+      // Attach an event listener for the end (hidden) event of collapse
+      $card.on("hidden.bs.collapse", handleCardHidden);
+      $card.collapse("hide");
+      toggleCaret($card.parent())
+    }
+
+    // Iterate through the cards
+    $.each($cardsToHide, processCard);
+
+    // -----------------------------------------------
+
+    if (!$linkTarget.children('.collapse').hasClass('show')) {
+      $linkTarget.children('.card-header').trigger('click');
+    }
   });
 
   // Instantiates ClipboardJS
