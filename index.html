@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js" integrity="sha256-meF2HJJ2Tcruwz3z4XcxYDRMxKprjdruBHc3InmixCQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js" integrity="sha256-+JMHsXRyeTsws/tzbIh5YHQxRdKCuNjmvNcTFtY6DLc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js" integrity="sha256-dwhppIrxD8qC6lNulndZgtIm4XBU9zoMd9OUoXzIDAE=" crossorigin="anonymous"></script>
     <style type="text/css">
       nav {font-size: 1.4vh;} /* Allows scroll on nav */
       #nav {padding: 0; max-height: 100vh; overflow-y: scroll;}
@@ -43,79 +44,79 @@
           </nav>
           <div id="spacer"><!-- Spacer --></div>
 
-        </div>
-        <div class="col-10 pr-3" id="content">
-          <!-- Title -->
-          <div class="row text-center" id="title">
-            <div class="col">
-              <h1>Idle Champions Community FAQ</h1>
-              <button class="btn mr-3 float-right" id="mode"><span class="icon-lightbulb-dark"></span></button>
-            </div>
           </div>
-          <div class="row text-center" id="header">
-              <div class="col p-2">
-                This is a voluntarily run Community FAQ that is a work in progress. If you spot any mistakes, typos, errors, bugs, or have any questions that you think would be a good addition to this FAQ<br />
-                please contact @archimedes#5179 in the <a target="_blank" href="https://discord.gg/IdleChampions">Official Idle Champions Discord Server</a> or submit an issue here: <a target="_blank" href="https://github.com/omfgtora/Idle-Champions-FAQ/issues">https://github.com/omfgtora/Idle-Champions-FAQ/issues</a>
+          <div class="col-10 pr-3" id="content">
+            <!-- Title -->
+            <div class="row text-center" id="title">
+              <div class="col">
+                <h1>Idle Champions Community FAQ</h1>
+                <button class="btn mr-3 float-right" id="mode"><span class="icon-lightbulb-dark"></span></button>
+              </div>
             </div>
-          </div>
-
-          <!-- Search Bar -->
-          <div class="row sticky-top" id="search-row">
-            <div class="col">
-              <form class="mb-0">
-                <div class="form-group m-0">
-                  <input class="search-query form-control" type="text" placeholder="Search" id="search">
-                </div>
-              </form>
+            <div class="row text-center" id="header">
+                <div class="col p-2">
+                  This is a voluntarily run Community FAQ that is a work in progress. If you spot any mistakes, typos, errors, bugs, or have any questions that you think would be a good addition to this FAQ<br />
+                  please contact @archimedes#5179 in the <a target="_blank" href="https://discord.gg/IdleChampions">Official Idle Champions Discord Server</a> or submit an issue here: <a target="_blank" href="https://github.com/omfgtora/Idle-Champions-FAQ/issues">https://github.com/omfgtora/Idle-Champions-FAQ/issues</a>
+              </div>
             </div>
-          </div>
 
-          <div class="row" id="questions">
-
-          <!-- Accordion -->
-          <div class="col">
-            <div class="accordion" id="questionTemplate-container">
-
-            <!-- Question Template -->
-            <script type="text/x-handlebars" id="questionTemplate">
-              {{#each questions}}
-              <div class="card my-1" id="{{ id }}">
-
-                <div class="card-header">
-                  <span class="icon-angle-right"></span> <h5 class="d-inline">{{ question }}</h5>
-                  <div class="float-right">
-                    <button class="btn btn-sm d-inline m-0" title="Copy direct link" data-clipboard-text="https://idlechampionsfaq.netlify.com/#{{ id }}"><span class="icon-link"></i></button>
+            <!-- Search Bar -->
+            <div class="row sticky-top" id="search-row">
+              <div class="col">
+                <form class="mb-0">
+                  <div class="form-group m-0">
+                    <input class="search-query form-control" type="text" placeholder="Search" id="search">
                   </div>
-                </div>
+                </form>
+              </div>
+            </div>
 
-                <div class="collapse" data-parent="#accordion">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col">
-                        {{{ answer }}}
+            <div class="row" id="questions">
+
+            <!-- Accordion -->
+            <div class="col">
+              <div class="accordion" id="questionTemplate-container">
+
+              <!-- Question Template -->
+              <script type="text/x-handlebars" id="questionTemplate">
+                {{#each questions}}
+                <div class="card my-1" id="{{ id }}">
+
+                  <div class="card-header">
+                    <span class="icon-angle-right"></span> <h5 class="d-inline">{{ question }}</h5>
+                    <div class="float-right">
+                      <button class="btn btn-sm d-inline m-0" title="Copy direct link" data-clipboard-text="https://idlechampionsfaq.netlify.com/#{{ id }}"><span class="icon-link"></i></button>
+                    </div>
+                  </div>
+
+                  <div class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col">
+                          {{{ markdown answer }}}
+                        </div>
                       </div>
                     </div>
                   </div>
+
                 </div>
+                {{/each}}
+              </script>
+              <!-- End Template -->
 
               </div>
-              {{/each}}
-            </script>
-            <!-- End Template -->
-
+              <!-- End Accordion -->
             </div>
-            <!-- End Accordion -->
           </div>
-        </div>
-        <!-- End Content Row -->
+          <!-- End Content Row -->
 
-        <div class="row my-2"><div class="col text-center">Credits: Archimedes (Author), ToRA (Code)</div></div>
-        <div id="spacer"></div>
+          <div class="row my-2"><div class="col text-center">Credits: Archimedes (Author), ToRA (Code)</div></div>
+          <div id="spacer"></div>
+        </div>
       </div>
+      <!-- End Container row -->
     </div>
-    <!-- End Container row -->
-  </div>
-  <!-- End Container -->
+    <!-- End Container -->
 
   <script src="faq/questions.js"></script>
   <script src="faq/script.js"></script>

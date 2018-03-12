@@ -6,6 +6,11 @@ $(document).ready(function() {
   var compiledNav = navTemplate(data);
   $('#table-of-contents').html(compiledNav);
   // Handlebars template for content
+  Handlebars.registerHelper('markdown', function(data){
+    var convert = new showdown.Converter();
+    var converted = convert.makeHtml(data);
+    return converted;
+  });
   var questionSource = $('#questionTemplate').html();
   var questionTemplate = Handlebars.compile(questionSource);
   var compiledQuestions = questionTemplate(data);
@@ -41,11 +46,11 @@ $(document).ready(function() {
   // If no direct link
   else {
     // Activate first nav-link
-    $('.nav-link[href="#Q01"]').addClass('active');
+    $('.nav-link').first().addClass('active');
     // Open first accordion card
-    $('#Q01').find('.collapse').collapse('show');
+    $('.collapse').first().collapse('show');
     // Toggle firsrt accordion card caret
-    $('#Q01').find('.card-header > span').toggleClass('icon-angle-right icon-angle-down');
+    $('.card-header > span').first().toggleClass('icon-angle-right icon-angle-down');
   };
 
   // Search
@@ -59,7 +64,9 @@ $(document).ready(function() {
     // If something in search bar
     if(val.length) {
       $('.card').hide().filter(function() {
-        return $('.card-body', this).text().toLowerCase().indexOf(val.toLowerCase()) > -1;
+        var matches = $('.card-body', this).text().toLowerCase().indexOf(val.toLowerCase()) > -1;
+        var matches = matches + $('.card-header', this).text().toLowerCase().indexOf(val.toLowerCase()) > -1;
+        return matches;
       }).show();
     }
     // If nothing in search bar
