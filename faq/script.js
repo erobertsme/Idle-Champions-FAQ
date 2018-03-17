@@ -1,16 +1,21 @@
 $(document).ready(function() {
 
+  // Handlebars helper for converting markdown to html using showdown
+  Handlebars.registerHelper('markdown', function(data){
+    var convert = new showdown.Converter();
+    var converted = convert.makeHtml(data);
+    return converted;
+  });
+  // Handlebars helper for getting a list of all categories
+  
+  // Handlebars helper for grouping questions into categories
+
   // Handlebars template for nav
   var navSource = $('#navTemplate').html();
   var navTemplate = Handlebars.compile(navSource);
   var compiledNav = navTemplate(data);
   $('#table-of-contents').html(compiledNav);
   // Handlebars template for content
-  Handlebars.registerHelper('markdown', function(data){
-    var convert = new showdown.Converter();
-    var converted = convert.makeHtml(data);
-    return converted;
-  });
   var questionSource = $('#questionTemplate').html();
   var questionTemplate = Handlebars.compile(questionSource);
   var compiledQuestions = questionTemplate(data);
