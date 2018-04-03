@@ -3,157 +3,53 @@
     <meta charset="UTF-8">
     <title>Idle Champions Community FAQ</title>
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha256-rByPlHULObEjJ6XQxW/flG2r+22R5dKiAoef+aXWfik=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.structure.min.css" integrity="sha256-rxais37anKUnpL5QzSYte+JnIsmkGmLG+ZhKSkZkwVM=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.css" integrity="sha256-mEMD30TTg+vIEGUmHHgcgSOgm0FBfLipyQ97Jr0TTH8=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" integrity="sha256-2k1KVsNPRXxZOsXQ8aqcZ9GOOwmJTMoOB5o5Qp1d6/s=" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/icons.css">
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js" integrity="sha256-+JMHsXRyeTsws/tzbIh5YHQxRdKCuNjmvNcTFtY6DLc=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha256-KM512VNnjElC30ehFwehXjx1YCHPiQkOPmqnrWtpccM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style type="text/css">
     </style>
   </head>
 
   <body>
-    <div class="container">
+    <section class="section">
+      <div class="container" id="content">
 
-      <div class="row">
-        <div class="col text-center"><h5 class="m-4">Generate new questions data</h5></div>
-      </div>
+        <div class="box" v-for="each in questions">
+          <div class="media-content">
+            <div class="content">
 
-      <div class="row">
-        <div class="col-6">
-          <ul class="list-group" id="template-container">
-            <script type="text/x-handlebars" id="template">
-              {{#each this}}
-                <li class="list-group-item">
-                  <b>{{ @key }}</b>
-                  <button class="btn btn-sm btn-outline-secondary p-1 float-right d-inline"><span class="icon-edit"></span></button>
-                  <ul class="list-group mt-2" id="question-containers">
-                  {{#with this}}
-                    {{#each this}}
-                      <li class="list-group-item">{{ question }}<button class="btn btn-sm btn-outline-secondary p-1 float-right d-inline"><span class="icon-edit"></span></button></li>
-                    {{/each}}
-                  {{/with}}
-                  </ul>
-                </li>
-              {{/each}}
-            </script>
-          </ul>
-        </div>
-
-        <div class="col-6">
-
-          <div class="row">
-            <div class="col">
-              <div id="category" class="input-group">
-                <input class="form-control" type="text" name="category" placeholder="Add Category">
-                <div class="input-group-append">
-                  <button class="btn btn-primary d-inline" type="button" name="category"><span class="icon-plus"></span></button>
+              <div class="hero is-small">
+                <div class="hero-body">
+                  <h3 class="title">{{ each.question }}</h3>
                 </div>
               </div>
+
+              <p>{{ each.answer }}</p>
+
+              <div class="level-right"><button class="button is-small"><span class="icon-edit"></span></button></div>
             </div>
           </div>
-
-          <div class="row mt-4">
-            <div class="col">
-              <form class="form-group" id="editor">
-                <input type="text" name="question" class="form-control" value="" placeholder="Question">
-                <textarea name="answer" class="form-control" id="textarea" rows="6" placeholder="Answer"></textarea>
-                <button class="btn btn-primary btn-block" type="submit">Add</button>
-              </form>
-            </div>
-          </div>
-
         </div>
-      </div>
 
-      <div class="row mt-4">
-        <div class="col">
-          <form id="output">
-            <button class="btn btn-success btn-block" id="generate" type="submit">Generate</button>
-            <textarea class="form-control-plaintext mt-2" name="output" rows="18" placeholder="Output" readonly></textarea>
-          </form>
+        <div class="box">
+          <label class="label">Question</label>
+          <input class="input" type="text" name="question" placeholder="Question" v-model="newQuestion.question">
+
+          <label class="label">Answer</label>
+          <textarea class="textarea" type="text" name="answer" placeholder="Answer" v-model="newQuestion.answer"></textarea>
+
+          <button class="button" @click="addQuestion">Add</button>
         </div>
-      </div>
 
-    </div><!-- End Container -->
+        <label class="label" style="margin-top: 40px;">Output</label>
+        <button class="button is-success" @click="outputData">Generate Data</button>
+        <textarea class="textarea" name="output" rows="8">{{ output }}</textarea>
 
-  <script type="text/javascript">
-    $(document).ready(function() {
-      var data = {
-        questions: [
-          {
-            "id": "01",
-            "category": "Test",
-            "question": "Lorem ipsum dolor sit amet?",
-            "answer": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus."
-          },
-          {
-            "id": "02",
-            "category": "Test2",
-            "question": "2nd Lorem ipsum dolor sit amet?",
-            "answer": "2nd Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus."
-          },
-          {
-            "id": "03",
-            "category": "Test3",
-            "question": "3nd Lorem ipsum dolor sit amet?",
-            "answer": "3nd Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus."
-          },
-          {
-            "id": "04",
-            "category": "Test",
-            "question": "5nd Lorem ipsum dolor sit amet?",
-            "answer": "5nd Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus."
-          }
-        ]
-      };
+      </div><!-- End Container -->
 
-      // List questions into their categories
-      function prepareQuestions(currentObj, question) {
-      if (currentObj.hasOwnProperty(question.category)) {
-        currentObj[question.category].push(question);
-      }
-      else {
-        currentObj[question.category] = [question];
-      }
-      return currentObj;
-      };
-      var categories = data.questions.reduce(prepareQuestions, {});
-
-      var questionSource = $('#template').html();
-      var questionTemplate = Handlebars.compile(questionSource);
-      var compiledQuestions = questionTemplate(categories);
-      $('#template-container').html(compiledQuestions);
-
-      // jQuery UI sortable on questions list
-      $('#template-container, #question-containers').sortable({
-      connectWith: "ul"
-    });
-
-      // Edit question
-      $('#editor').on('submit', function(event){
-        event.preventDefault();
-      });
-
-      var outputData = {};
-
-      // Generate JSON data for output
-      function generateJSON(data){
-        var data = JSON.stringify(data, null, 2)
-        return data;
-      };
-
-      // Generation button
-      $('#output').on('submit', function(event){
-        event.preventDefault();
-        $('#output > textarea').html("var data = " + generateJSON(data))
-      });
-    });
-  </script>
+    </section>
+  <script type="text/javascript" src="faq/questions.js"></script>
+  <script type="text/javascript" src="faq/editor.js"></script>
   </body>
 </html>
