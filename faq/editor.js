@@ -1,32 +1,3 @@
-var data = {
-  questions: [
-    {
-      "category": "Test",
-      "question": "Lorem ipsum dolor sit amet?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus."
-    },
-    {
-      "category": "Test2",
-      "question": "2nd Lorem ipsum dolor sit amet?",
-      "answer": "2nd Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus."
-    },
-    {
-      "category": "Test3",
-      "question": "3nd Lorem ipsum dolor sit amet?",
-      "answer": "3nd Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus."
-    },
-    {
-      "question": "4rd Lorem ipsum dolor sit amet?",
-      "answer": "4rd Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus."
-    },
-    {
-      "category": "Test",
-      "question": "5nd Lorem ipsum dolor sit amet?",
-      "answer": "5nd Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio tempora cum amet rem esse pariatur voluptatum sit harum perferendis, doloremque ullam natus, aliquid quis quisquam neque quae adipisci doloribus, voluptatibus."
-    }
-  ]
-};
-
 new Vue({
   el: '#content',
   data: {
