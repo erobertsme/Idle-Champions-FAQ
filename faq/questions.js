@@ -118,7 +118,12 @@ questions: [
   {
     "id": "24",
     "question": "Where do I enter Chest Codes?",
-    "answer": "Chest Codes should be entered in game via: Shop (S)>Redeem a Code>Submit<br /><br />DLC codes are entered in Steam via: Games>Activate a Product on Steam...>Follow instructions on the window"
+    "answer": "Chest Codes should be entered in game via:<br/><ul><li>Shop (S)</li><li>Redeem a Code</li><li>Submit</li></ul><br /><br />DLC codes are entered in Steam via: <ul><li>Games</li><li>Activate a Product on Steam...</li><li>Follow instructionsin the Steam window<li></ul>
+  },
+  {
+    "id": "25",
+    "question": "Do Newsletter Chest Codes Expire similarly to other Chest Codes? How long do they last?",
+    "answer": "No, Newsletter Chest Codes never Expire. They are also not bound to a specific account, however each code can only be used once (by a single account).<br/><br/>\n\nBecause of this, it is possible, if you were to sign up to the Idle Champions of the Forgotten Realms Newsletter before playing, or given codes that were sent out before you began playing the game, to have a vast number of free chests from Newsletter Codes upon first starting your Idle Champions journey. Providing the codes were not previously used."
   }
 ]
 }
