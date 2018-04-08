@@ -43,7 +43,7 @@ questions: [
   {
     "id": "09",
     "question": "Which FE should I pick?",
-    "answer": "In general, it is best to wait until you reach your wall or know what the enemy type at your wall is before selecting a Minsc FE specialisation. You can leave Minsc at level 50 with his Specilisation unpicked until you get to the wall."
+    "answer": "In general, it is best to wait until you reach your wall or know what the enemy type at your wall is before selecting a Minsc/Zorbu FE specialisation. You can leave Minsc at level 50/Zorbu at level 10 with his Specilisation unpicked until you get to the wall."
   },
   {
     "id": "10",
