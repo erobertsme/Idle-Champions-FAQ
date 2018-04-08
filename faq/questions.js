@@ -118,7 +118,7 @@ questions: [
   {
     "id": "24",
     "question": "Where do I enter Chest Codes?",
-    "answer": "Chest Codes should be entered in game via: Shop (S)>Redeem a Code>Submit<br /><br />DLC codes are entered in Steam via: Games>Activate a Product on Steam...>Follow instructions on the window"
+    "answer": "Chest Codes should be entered in game via:<br /><ul><li>Shop (S)</li><li>Redeem a Code</li><li>Submit</li></ul><br /><br />DLC codes are entered in Steam via:<br /><ul><li>Games</li><li>Activate a Product on Steam...</li><li>Follow instructions on the window</li></ul>
   },
   {
     "id": "25",
@@ -134,6 +134,11 @@ questions: [
     "id": "27",
     "question": "Do Newsletter Chest Codes Expire similarly to other Chest Codes? How long do they last?",
     "answer": "No, Newsletter Chest Codes never Expire. They are also not bound to a specific account, however each code can only be used once (by a single account).<br /><br />\n\nBecause of this, it is possible, if you were to sign up to the Idle Champions of the Forgotten Realms Newsletter before playing, or given codes that were sent out before you began playing the game, to have a vast number of free chests from Newsletter Codes upon first starting your Idle Champions journey. Providing the codes were not previously used."
+  },
+  {
+    "id": "28",
+    "question": "Should I spend 10k Event Tokens on a Gold Event Chest?",
+    "answer": "It depends.<br />Because Event Free Plays cost 2.5k Event Tokens to run, 10k Event Tokens could either pay for 1 Guaranteed Gold Event Chest, or 4 Free Plays.<br />Justin has confirmed that there is a 33.33% chance of getting a Gold Event Chest, and therefore a 66.66% chance of getting a Silver Event Chest, from an Event Free Play (Past Z50).<br /><br />Since there is a 33.33% chance of getting a Gold Event Chest from the Free Play, and you can get 4 Free Plays with 10k Event Tokens. Due to this, there is slightly over an 80% chance that 10k Event Tokens will grant at least one Gold Event Chest through Free Plays. It also has the potential to grant more than one Gold Event Chest (slightly over 40% chance).<br /><br />So, statistically, it is unwise to spend 10k Event Tokens on a single Gold Event Chest, however there are some influencing factors that could make buying a Gold Event Chest for 10k Event Tokens more favourable:<br /><br /><ul><li>Time constraints: Completing 4 Free Play runs to Z50 takes time (~30mins per run)</li><li>There is a ~20% chance to get zero Gold Event Chests from the 4 Free Plays</li></ul>"
   }
 ]
 }
