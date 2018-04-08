@@ -118,7 +118,7 @@ questions: [
   {
     "id": "24",
     "question": "Where do I enter Chest Codes?",
-    "answer": "Chest Codes should be entered in game via:<br /><ul><li>Shop (S)</li><li>Redeem a Code</li><li>Submit</li></ul><br /><br />DLC codes are entered in Steam via:<br /><ul><li>Games</li><li>Activate a Product on Steam...</li><li>Follow instructions on the window</li></ul>
+    "answer": "Chest Codes should be entered in game via:<br /><ul><li>Shop (S)</li><li>Redeem a Code</li><li>Submit</li></ul><br /><br />DLC codes are entered in Steam via:<br /><ul><li>Games</li><li>Activate a Product on Steam...</li><li>Follow instructions on the window</li></ul>"
   },
   {
     "id": "25",
