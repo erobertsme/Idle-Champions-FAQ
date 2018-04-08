@@ -128,7 +128,12 @@ questions: [
   {
     "id": "26",
     "question": "How does the guaranteed 1 Epic Equipment per 10 Gold Chests work?",
-    "answer": "The guaranteed Epic Equipment card within every 10 Gold Chests applies to each type of Gold Chest independently of one another. Each type of Chest has a unique image, although 'Event Chest' is often used to categorise chests, the pity timer is specific to the Type of Event Chest.<br />\nFor example, if you open nine Grand Revel (Event) Gold Chests and then you open one Fleetswake (Event) Gold Chest, you are not guaranteed an epic equipment card in the Fleetswake Chest. However, if you open 10 Fleetswake Chests, you are guaranteed at least one Epic Equipment Card.<br /><br />\nNote: This Guaranteed Epic is a Guaranteed Epic *Equipment* Card, getting an Epic Consumable does NOT affect the one Guaranteed Epic Equipment Card per ten Gold Chests"
+    "answer": "The guaranteed Epic Equipment card within every 10 Gold Chests applies to each type of Gold Chest independently of one another. Each type of Chest has a unique image, although 'Event Chest' is often used to categorise chests, the pity timer is specific to the Type of Event Chest.<br />\nFor example, if you open nine Grand Revel (Event) Gold Chests and then you open one Fleetswake (Event) Gold Chest, you are not Guaranteed an Epic Equipment Card in the Fleetswake Chest. However, if you open 10 Fleetswake Chests, you are guaranteed at least 1 Epic Equipment Card.<br /><br />\nNote: This Guaranteed Epic is a Guaranteed Epic <i>Equipment</i> Card, getting an Epic Consumable does <i>not</i> affect the one Guaranteed Epic Equipment Card per ten Gold Chests"
+  },
+  {
+    "id": "27",
+    "question": "Do Newsletter Chest Codes Expire similarly to other Chest Codes? How long do they last?",
+    "answer": "No, Newsletter Chest Codes never Expire. They are also not bound to a specific account, however each code can only be used once (by a single account).<br /><br />\n\nBecause of this, it is possible, if you were to sign up to the Idle Champions of the Forgotten Realms Newsletter before playing, or given codes that were sent out before you began playing the game, to have a vast number of free chests from Newsletter Codes upon first starting your Idle Champions journey. Providing the codes were not previously used."
   }
 ]
 }
