@@ -83,7 +83,7 @@ questions: [
   {
     "id": "17",
     "question": "Can I save my progress and play on various PCs?",
-    "answer": "Yes. All of your Idle Champions progress and Formations are stored server side, meaning you can play it on any PC with Steam, and Idle Champions installed and resume right where you left off."
+    "answer": "Yes.<br /><br />All of your Idle Champions progress and Formations are stored server side, meaning you can play it on any PC with Steam, and Idle Champions installed and resume right where you left off."
   },
   {
     "id": "18",
