@@ -128,7 +128,7 @@ questions: [
   {
     "id": "26",
     "question": "How does the guaranteed 1 Epic Equipment per 10 Gold Chests work?",
-    "answer": "The guaranteed Epic Equipment card within every 10 Gold Chests applies to each type of Gold Chest independently of one another. Each type of Chest has a unique image, although 'Event Chest' is often used to categorise chests, the pity timer is specific to the Type of Event Chest.<br />\nFor example, if you open nine Grand Revel (Event) Gold Chests and then you open one Fleetswake (Event) Gold Chest, you are not Guaranteed an Epic Equipment Card in the Fleetswake Chest. However, if you open 10 Fleetswake Chests, you are guaranteed at least 1 Epic Equipment Card.<br /><br />\nNote: This Guaranteed Epic is a Guaranteed Epic <i>Equipment</i> Card, getting an Epic Consumable does <i>not</i> affect the one Guaranteed Epic Equipment Card per ten Gold Chests"
+    "answer": "The guaranteed Epic Equipment card within every 10 Gold Chests applies to each type of Gold Chest independently of one another. Each type of Chest has a unique image, although 'Event Chest' is often used to categorise chests, the pity timer is specific to the Type of Event Chest.<br />\nFor example, if you open 9 Grand Revel (Event) Gold Chests and then you open 1 Fleetswake (Event) Gold Chest, you are not Guaranteed an Epic Equipment Card in the Fleetswake Chest. However, if you open 10 Fleetswake Chests, you are guaranteed at least 1 Epic Equipment Card.<br /><br />\nNote: This Guaranteed Epic is a Guaranteed Epic <i>Equipment</i> Card, getting an Epic Consumable does <i>not</i> affect the 1 Guaranteed Epic Equipment Card per ten Gold Chests"
   },
   {
     "id": "27",
