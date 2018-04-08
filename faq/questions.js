@@ -121,10 +121,12 @@ questions: [
     "answer": "Chest Codes should be entered in game via: Shop (S)>Redeem a Code>Submit<br /><br />DLC codes are entered in Steam via: Games>Activate a Product on Steam...>Follow instructions on the window"
   },
   {
+    "id": "25",
     "question": "Who writes the Cinematic Dialogue for the Campaigns?",
     "answer": "Several people, actually! Justin did all the initial design and adventures/campaigns, while we also had Jacob Burgess contributing until recently. The current writer/contributor is Scott Fitzgerald Gray."
   },
   {
+    "id": "26",
     "question": "How does the guaranteed 1 Epic Equipment per 10 Gold Chests work?",
     "answer": "The guaranteed Epic Equipment card within every 10 Gold Chests applies to each type of Gold Chest independently of one another. Each type of Chest has a unique image, although 'Event Chest' is often used to categorise chests, the pity timer is specific to the Type of Event Chest.<br />\nFor example, if you open nine Grand Revel (Event) Gold Chests and then you open one Fleetswake (Event) Gold Chest, you are not guaranteed an epic equipment card in the Fleetswake Chest. However, if you open 10 Fleetswake Chests, you are guaranteed at least one Epic Equipment Card.<br /><br />\nNote: This Guaranteed Epic is a Guaranteed Epic *Equipment* Card, getting an Epic Consumable does NOT affect the one Guaranteed Epic Equipment Card per ten Gold Chests"
   }
