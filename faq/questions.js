@@ -48,7 +48,7 @@ questions: [
   {
     "id": "10",
     "question": "How do I know what type the enemy is (for choosing the best FE)?",
-    "answer": "All creatures in Idle Champions take their 'type' from the official 5e D&amp;D material. As such, in order to find out what type a creature type an enemy is, you can simply search for the creature on D&amp;D Beyond's Beastiary (<a target=\"_blank\" href=\"https://www.dndbeyond.com/monsters/\">https:www.dndbeyond.com/monsters</a>) and see the creature's Type.<br /><br />Alternatively, most missions have had the enemies in them documented (though when new content is released it takes time to document them) in the Idle Champions wikia (<a target=\"_blank\" href=\"http://idle-champions.wikia.com/\">http://idle-champions.wikia.com/</a>) or for events Gaarawar's Event Guides usually list the enemies type for each level."
+"answer": "All creatures in Idle Champions take their 'type' from the official 5e D&amp;D material. As such, in order to find out what type a creature type an enemy is, you can simply search for the creature on D&amp;D Beyond's Beastiary (<a target=\"_blank\" href=\"https://www.dndbeyond.com/monsters/\">https:www.dndbeyond.com/monsters</a>) and see the creature's Type.<br /><br />Alternatively, most missions have had the enemies in them documented (though when new content is released it takes time to document them) in the Idle Champions wikia (<a target=\"_blank\" href=\"http://idle-champions.wikia.com/\">http://idle-champions.wikia.com/</a>) or for events Gaarawar's Event Guides (which can be found linked in the <a target=\"_blank\" href=\"https://discord.gg/IdleChampions\">#resources</a> Discord channel) usually list the enemies type for each level."
   },
   {
     "id": "11",
