@@ -48,7 +48,7 @@ questions: [
   {
     "id": "10",
     "question": "How do I know what type the enemy is (for choosing the best FE)?",
-    "answer": "All creatures in Idle Champions take their 'type' from the official 5e D&amp;D material. As such, in order to find out what type a creature type an enemy is, you can simply search for the creature on D&amp;D Beyond's Beastiary (<a target=\"_blank\" href=\"https://www.dndbeyond.com/monsters/\">https:www.dndbeyond.com/monsters</a>) and see the creature's Type.<br /><br />Alternatively, most missions have had the enemies in them documented (though when new content is released it takes time to document them) in the Idle Champions wikia (<a target=\"_blank\" href=\"http://idle-champions.wikia.com/\">http://idle-champions.wikia.com/</a>) or for events Gaarawar's Event Guides usually list the enemies type for each level."
+"answer": "All creatures in Idle Champions take their 'type' from the official 5e D&amp;D material. As such, in order to find out what type a creature type an enemy is, you can simply search for the creature on D&amp;D Beyond's Beastiary (<a target=\"_blank\" href=\"https://www.dndbeyond.com/monsters/\">https:www.dndbeyond.com/monsters</a>) and see the creature's Type.<br /><br />Alternatively, most missions have had the enemies in them documented (though when new content is released it takes time to document them) in the Idle Champions wikia (<a target=\"_blank\" href=\"http://idle-champions.wikia.com/\">http://idle-champions.wikia.com/</a>) or for events Gaarawar's Event Guides (which can be found linked in the <a target=\"_blank\" href=\"https://discord.gg/IdleChampions\">#resources</a> Discord channel) usually list the enemies type for each level."
   },
   {
     "id": "11",
@@ -98,7 +98,7 @@ questions: [
   {
     "id": "20",
     "question": "What's the best order to open Event Chests?",
-    "answer": "Due to the new 'Guaranteed Upgrade' Mechanics of the 'Chests and Potions Update' the ideal order to buy/open chests for an Event Champion is as follows:<br /><br />If you are going to buy <i>any</i> chests, buy at least some of them first<br /><ul><li>If you are not going to buy <i>any</i> chests, open ONE Gold Event Chest</li><li>Open Silver Event Chests until All slots are Rare(Blue)+</li><li>Open Gold Event Chests</li></ul>The above is the ideal method for opening Event Chests, however it is extremely unlikely for anyone to obtain all Blue+ Equipment from Silver Chests alone, due to their very low drop rate, and the time restricted manner of Events. As such, realistically, there is only a <i>very marginal</i> detriment to opening <i>exclusively</i> Silver Event Chests until all the Equipment is Uncommon(Green)+, and then move onto opening Golds and Silvers once they are obtained. The following order takes this into account:<br /><br />If you are going to buy <i>any</i> chests, buy at least some of them first<br /><ul><li>If you are not going to buy <i>any</i> chests, open ONE Gold Event Chest</li><li>Open Silver Event Chests until All slots are Uncommon(Green)+ <i>or</i> until the Event is over and you are unable to obtain anymore Silver Event Chests</li><li>Open Gold Event Chests</li></ul>"
+    "answer": "Due to the new 'Guaranteed Upgrade' Mechanics of the 'Chests and Potions Update' the <i>ideal</i> order to buy/open chests for an Event Champion is as follows:<br /><br />If you are going to buy <i>any</i> chests, buy at least some of them first (this prevents wasting drops from being replaced by a guaranteed Golden Epic)<br /><ul><li>If you are not going to buy <i>any</i> chests, open ONE Gold Event Chest</li><li>Open Silver Event Chests until All slots are Rare(Blue)+</li><li>Open Gold Event Chests</li></ul>The above is the <i>ideal<i> method for opening Event Chests, however it is extremely unlikely for anyone to obtain all Blue+ Equipment from Silver Chests alone, due to their very low drop rate, and the time restricted manner of Events. As such, realistically, there is only a <i>very marginal</i> detriment to opening <i>exclusively</i> Silver Event Chests until all the Equipment is Uncommon(Green)+, and then move onto opening Golds and Silvers as they are obtained. The following order takes this into account:<br /><br />If you are going to buy <i>any</i> chests, buy at least some of them first (this prevents wasting drops from being replaced by a guaranteed Golden Epic)<br /><ul><li>If you are not going to buy <i>any</i> chests, open ONE Gold Event Chest</li><li>Open Silver Event Chests until All slots are Uncommon(Green)+ <i>or</i> until the Event is over and you are unable to obtain anymore Silver Event Chests</li><li>Open Gold Event Chests</li></ul>"
   },
   {
     "id": "21",
@@ -118,7 +118,7 @@ questions: [
   {
     "id": "24",
     "question": "Where do I enter Chest Codes?",
-    "answer": "Chest Codes should be entered in game via:<br /><ul><li>Shop (S)</li><li>Redeem a Code</li><li>Submit</li></ul><br /><br />DLC codes are entered in Steam via:<br /><ul><li>Games</li><li>Activate a Product on Steam...</li><li>Follow instructions on the window</li></ul>"
+    "answer": "Chest Codes should be entered in game via:<br /><ul><li>Shop (S)</li><li>Redeem a Code</li><li>Submit</li></ul><br />DLC codes are entered in Steam via:<br /><ul><li>Games</li><li>Activate a Product on Steam...</li><li>Follow instructions on the window</li></ul>"
   },
   {
     "id": "25",
@@ -168,7 +168,7 @@ questions: [
   {
     "id": "34",
     "question": "What is the Party Composition of the CNE Lunchtime D&D Campaign?",
-    "answer": "Some of the CNE team are a part of a D&D group that plays during the CNE lunch breaks. The groups Party consists of the following Players, and their Characters:<br /><br />\n\nDungeon Master - {Currently Unknown}<br />\n\n<ul><li>Human Lore Bard - Alexis</li><li>Rock Gnome Druid - Clive</li><li>Shadar-kai Hexblade Warlock - Dylan</li><li>Water Genasi Light Cleric - Kat</li><li>Half-Elf Thief Rogue - Peter</li></ul>"
+    "answer": "Some of the CNE team are a part of a D&D group that plays during the CNE lunch breaks. The groups Party consists of the following Players, and their Characters:<br /><br />\n\nDungeon Master - Adam <br />\n\n<ul><li>Human Lore Bard - Alexis</li><li>Rock Gnome Druid - Clive</li><li>Shadar-kai Hexblade Warlock - Dylan</li><li>Water Genasi Light Cleric - Kat</li><li>Half-Elf Thief Rogue - Peter</li></ul>"
   }
 ]
 }
