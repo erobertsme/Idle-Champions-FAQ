@@ -7,7 +7,7 @@ $(document).ready(function() {
     return converted;
   });
   // Handlebars helper for getting a list of all categories
-  
+
   // Handlebars helper for grouping questions into categories
 
   // Handlebars template for nav
@@ -28,6 +28,8 @@ $(document).ready(function() {
   var search = $('#search-row').outerHeight();
   // Get height of nav title
   var navTitle = $('#tocTitle').outerHeight(true);
+  // Get search input
+  var searchInput = $('#search');
 
 
   // Direct link to question. Toggle caret. Auto scroll.
@@ -59,13 +61,7 @@ $(document).ready(function() {
   };
 
   // Search
-  $('#search').on("keypress input", function(event) {
-    // Prevent enter keypress
-    if (event.keyCode === 13) {
-      event.preventDefault();
-    }
-    // Hides non-matching cards (I did not write this. I only modified something I found on stackoverflow)
-    var val = $(this).val();
+  function hideCards(val){
     // If something in search bar
     if(val.length) {
       $('.card').hide().filter(function() {
@@ -78,6 +74,15 @@ $(document).ready(function() {
     else {
       $('.card').show();
     }
+  }
+  $(searchInput).on("keypress input focus", function(event) {
+    // Prevent enter keypress
+    if (event.keyCode === 13) {
+      event.preventDefault();
+    }
+    // Hides non-matching cards (I did not write this. I only modified something I found on stackoverflow)
+    var val = $(this).val();
+    hideCards(val);
   });
 
   // Toggles card and caret on click
@@ -94,6 +99,8 @@ $(document).ready(function() {
   $(navLinks).click(function(event) {
     // Prevent open link
     event.preventDefault();
+    // Claer search Bar
+    hideCards('');
     // Sets var to clicked button
     var link = event.target.hash;
     var $linkTarget = $(event.target.hash);
