@@ -171,7 +171,7 @@ questions: [
     "answer": "Some of the CNE team are a part of a D&D group that plays during the CNE lunch breaks. The groups Party consists of the following Players, and their Characters:<br /><br />\n\nDungeon Master - Adam <br />\n\n<ul><li>Human Lore Bard - Alexis</li><li>Rock Gnome Druid - Clive</li><li>Shadar-kai Hexblade Warlock - Dylan</li><li>Water Genasi Light Cleric - Kat</li><li>Half-Elf Thief Rogue - Peter</li></ul>"
   },
   {
-    "id": "35"
+    "id": "35",
     "question": "Can I get past Event Champions? Can I gear my Event Champions?",
     "answer": "It is currently impossible to obtain past Event Champions if you did not complete the 100 Event Token Mission during the Event.<br />Similarly, it is impossible to obtain Equipment for past Event Champions, except during specific Weekend Promotions that include the Specific Event Champion.<br /><br />CNE are working on a solution to this issue, in order to allow players to acquire both past Event Champions as well as increase the Equipment of owned Event Champions, outside of the (most likely yearly recurring) Events. However, there is no ETA for this addition to the game."
   }
