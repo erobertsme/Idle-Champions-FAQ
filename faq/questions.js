@@ -179,6 +179,11 @@ questions: [
     "id": "36",
     "question": "How do I unlock _____ Champion?",
     "answer": "Currently all champions that were released through an Event, are currently not obtainable unless you participated in the Event.<br />CNE has stated their desire to change this in the future to make the Event Champions accessible to new players as well, however there is no ETA for this change.<br /><br />Currently, the only Unlockable Champion that was not from an Event, is Drizzt, who can be unlocked by progressing through the 'A Grand Tour of the Sword Coast' Missions in order to unlock the Variant Mission 'Overdue Rendezvous' within the Waterdeep Mission Hub."
+  },
+  {
+    "id": "36",
+    "question": "Can I connect my steam version to the mobile version?",
+    "answer": "Apple iPad and Android Tablet versions of Idle Champions will not have their progress linked to Steam.<br /><br />All Alpha test accounts will be wiped at the end of the test. Your Steam account will not be affected."
   }
 ]
 }
