@@ -174,6 +174,11 @@ questions: [
     "id": "35",
     "question": "Can I get past Event Champions? Can I gear my Event Champions?",
     "answer": "It is currently impossible to obtain past Event Champions if you did not complete the 100 Event Token Mission during the Event.<br />Similarly, it is impossible to obtain Equipment for past Event Champions, except during specific Weekend Promotions that include the Specific Event Champion.<br /><br />CNE are working on a solution to this issue, in order to allow players to acquire both past Event Champions as well as increase the Equipment of owned Event Champions, outside of the (most likely yearly recurring) Events. However, there is no ETA for this addition to the game."
+  },
+  {
+    "id": "36",
+    "question": "How do I unlock _____ Champion?",
+    "answer": "Currently all champions that were released through an Event, are currently not obtainable unless you participated in the Event.<br />CNE has stated their desire to change this in the future to make the Event Champions accessible to new players as well, however there is no ETA for this change.<br /><br />Currently, the only Unlockable Champion that was not from an Event, is Drizzt, who can be unlocked by progressing through the 'A Grand Tour of the Sword Coast' Missions in order to unlock the Variant Mission 'Overdue Rendezvous' within the Waterdeep Mission Hub."
   }
 ]
 }
