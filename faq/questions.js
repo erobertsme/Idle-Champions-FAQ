@@ -168,7 +168,7 @@ questions: [
   {
     "id": "34",
     "question": "What is the Party Composition of the CNE Lunchtime D&D Campaign?",
-    "answer": "Some of the CNE team are a part of a D&D group that plays during the CNE lunch breaks. The groups Party consists of the following Players, and their Characters:<br /><br />\n\nDungeon Master - Adam <br />\n\n<ul><li>Morgana - Human Lore Bard - Alexis</li><li>Bignapoor - Rock Gnome Druid - Clive</li><li>Veshok - Shadar-kai Hexblade Warlock - Dylan</li><li>Tethys - Water Genasi Light Cleric - Kat</li><li>Aefard - Half-Elf Thief Rogue - Peter</li></ul>"
+    "answer": "Some of the CNE team are a part of a D&D group that plays during the CNE lunch breaks. The groups Party consists of the following Players, and their Characters:<br /><br />\n\nDungeon Master - Adam <br />\n\n<ul><li>Morgana - Human Lore Bard - Alexis</li><li>Bignapoor 'Big' - Rock Gnome Druid - Clive</li><li>Veshok - Shadar-kai Hexblade Warlock - Dylan</li><li>Tethys - Water Genasi Light Cleric - Kat</li><li>Aefard - Half-Elf Thief Rogue - Peter</li></ul>"
   },
   {
     "id": "35",
@@ -181,7 +181,7 @@ questions: [
     "answer": "Currently all champions that were released through an Event, are currently not obtainable unless you participated in the Event.<br />CNE has stated their desire to change this in the future to make the Event Champions accessible to new players as well, however there is no ETA for this change.<br /><br />Currently, the only Unlockable Champion that was not from an Event, is Drizzt, who can be unlocked by progressing through the 'A Grand Tour of the Sword Coast' Missions in order to unlock the Variant Mission 'Overdue Rendezvous' within the Waterdeep Mission Hub."
   },
   {
-    "id": "36",
+    "id": "37",
     "question": "Can I connect my steam version to the mobile version?",
     "answer": "Apple iPad and Android Tablet versions of Idle Champions will not have their progress linked to Steam.<br /><br />All Alpha test accounts will be wiped at the end of the test. Your Steam account will not be affected."
   }
