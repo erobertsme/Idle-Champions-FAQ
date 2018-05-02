@@ -168,7 +168,7 @@ questions: [
   {
     "id": "34",
     "question": "What is the Party Composition of the CNE Lunchtime D&D Campaign?",
-    "answer": "Some of the CNE team are a part of a D&D group that plays during the CNE lunch breaks. The groups Party consists of the following Players, and their Characters:<br /><br />\n\nDungeon Master - Adam <br />\n\n<ul><li>Human Lore Bard - Alexis</li><li>Rock Gnome Druid - Clive</li><li>Shadar-kai Hexblade Warlock - Dylan</li><li>Water Genasi Light Cleric - Kat</li><li>Half-Elf Thief Rogue - Peter</li></ul>"
+    "answer": "Some of the CNE team are a part of a D&D group that plays during the CNE lunch breaks. The groups Party consists of the following Players, and their Characters:<br /><br />\n\nDungeon Master - Adam <br />\n\n<ul><li>Morgana - Human Lore Bard - Alexis</li><li>Bignapoor - Rock Gnome Druid - Clive</li><li>Veshok - Shadar-kai Hexblade Warlock - Dylan</li><li>Tethys - Water Genasi Light Cleric - Kat</li><li>Aefard - Half-Elf Thief Rogue - Peter</li></ul>"
   },
   {
     "id": "35",
