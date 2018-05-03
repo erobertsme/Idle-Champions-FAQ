@@ -168,7 +168,7 @@ questions: [
   {
     "id": "34",
     "question": "What is the Party Composition of the CNE Lunchtime D&D Campaign?",
-    "answer": "Some of the CNE team are a part of a D&D group that plays during the CNE lunch breaks. The groups Party consists of the following Players, and their Characters:<br /><br />\n\n<div class=\"col-6 text-center\">\nDungeon Master - Adam <br />\n\n<table class=\"table table-sm\">\n<tr><td>Morgana</td><td>Human Lore Bard</td><td>Alexis</td></tr>\n<tr><td>Bignapoor 'Big'</td><td>Rock Gnome Druid</td><td>Clive</td></tr>\n<tr><td>Veshok</td><td>Shadar-kai Hexblade Warlock</td><td>Dylan</td></tr>\n<tr><td>Tethys</td><td>Water Genasi Light Cleric</td><td>Kat</td></tr>\n<tr><td>Aefard</td><td>Half-Elf Thief Rogue</td><td>Peter</td></tr>\n</table>\n</div>"
+    "answer": "Some of the CNE team are a part of a D&D group that plays during the CNE lunch breaks. The groups Party consists of the following Players, and their Characters:<br /><br />\n\n<div class=\"col-6 offset-2 text-center\">\nDungeon Master - Adam <br />\n\n<table class=\"table table-sm\">\n<tr><td>Morgana</td><td>Human Lore Bard</td><td>Alexis</td></tr>\n<tr><td>Bignapoor 'Big'</td><td>Rock Gnome Druid</td><td>Clive</td></tr>\n<tr><td>Veshok</td><td>Shadar-kai Hexblade Warlock</td><td>Dylan</td></tr>\n<tr><td>Tethys</td><td>Water Genasi Light Cleric</td><td>Kat</td></tr>\n<tr><td>Aefard</td><td>Half-Elf Thief Rogue</td><td>Peter</td></tr>\n</table>\n</div>"
   },
   {
     "id": "35",
